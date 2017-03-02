@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mbaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="oeuvre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="auteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="url_img" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oeuvreparsondage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="auteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="url_img" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sondage_id" Type="Int32" Nullable="false" />
+    <Property Name="nb_votes" Type="Int32" />
+    <NavigationProperty Name="sondage" Relationship="Self.OeuvreParSondage_ibfk_1" FromRole="oeuvreparsondage" ToRole="sondage" />
+  </EntityType>
+  <EntityType Name="sondage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date_debut" Type="DateTime" Nullable="false" />
+    <Property Name="date_fin" Type="DateTime" Nullable="false" />
+    <Property Name="en_cours" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="oeuvreparsondage" Relationship="Self.OeuvreParSondage_ibfk_1" FromRole="sondage" ToRole="oeuvreparsondage" />
+  </EntityType>
+  <Association Name="OeuvreParSondage_ibfk_1">
+    <End Role="sondage" Type="Self.sondage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="oeuvreparsondage" Type="Self.oeuvreparsondage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sondage">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="oeuvreparsondage">
+        <PropertyRef Name="sondage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mbaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="oeuvre" EntityType="Self.oeuvre" />
+    <EntitySet Name="oeuvreparsondage" EntityType="Self.oeuvreparsondage" />
+    <EntitySet Name="sondage" EntityType="Self.sondage" />
+    <AssociationSet Name="OeuvreParSondage_ibfk_1" Association="Self.OeuvreParSondage_ibfk_1">
+      <End Role="sondage" EntitySet="sondage" />
+      <End Role="oeuvreparsondage" EntitySet="oeuvreparsondage" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

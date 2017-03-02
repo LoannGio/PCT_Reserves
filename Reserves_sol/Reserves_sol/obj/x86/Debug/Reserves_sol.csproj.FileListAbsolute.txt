@@ -1,0 +1,7 @@
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\x86\Debug\Reserves_sol.exe.config
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.Accueil.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.Creer.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.Importer.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.InfoSondage.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.Properties.Resources.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x86\Debug\Reserves_sol.csproj.GenerateResource.Cache

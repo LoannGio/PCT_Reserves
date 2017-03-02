@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mbaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="oeuvre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="auteur" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="url_img" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oeuvreparsondage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="auteur" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="url_img" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="sondage_id" Type="int" Nullable="false" />
+          <Property Name="nb_votes" Type="int" />
+        </EntityType>
+        <EntityType Name="sondage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="date_debut" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="date_fin" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="en_cours" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="OeuvreParSondage_ibfk_1">
+          <End Role="sondage" Type="Self.sondage" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="oeuvreparsondage" Type="Self.oeuvreparsondage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sondage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oeuvreparsondage">
+              <PropertyRef Name="sondage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mbaModelStoreContainer">
+          <EntitySet Name="oeuvre" EntityType="Self.oeuvre" Schema="mba" store:Type="Tables" />
+          <EntitySet Name="oeuvreparsondage" EntityType="Self.oeuvreparsondage" Schema="mba" store:Type="Tables" />
+          <EntitySet Name="sondage" EntityType="Self.sondage" Schema="mba" store:Type="Tables" />
+          <AssociationSet Name="OeuvreParSondage_ibfk_1" Association="Self.OeuvreParSondage_ibfk_1">
+            <End Role="sondage" EntitySet="sondage" />
+            <End Role="oeuvreparsondage" EntitySet="oeuvreparsondage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mbaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="oeuvre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="auteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="url_img" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oeuvreparsondage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="auteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="url_img" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sondage_id" Type="Int32" Nullable="false" />
+          <Property Name="nb_votes" Type="Int32" />
+          <NavigationProperty Name="sondage" Relationship="Self.OeuvreParSondage_ibfk_1" FromRole="oeuvreparsondage" ToRole="sondage" />
+        </EntityType>
+        <EntityType Name="sondage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_debut" Type="DateTime" Nullable="false" />
+          <Property Name="date_fin" Type="DateTime" Nullable="false" />
+          <Property Name="en_cours" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="oeuvreparsondage" Relationship="Self.OeuvreParSondage_ibfk_1" FromRole="sondage" ToRole="oeuvreparsondage" />
+        </EntityType>
+        <Association Name="OeuvreParSondage_ibfk_1">
+          <End Role="sondage" Type="Self.sondage" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="oeuvreparsondage" Type="Self.oeuvreparsondage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sondage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oeuvreparsondage">
+              <PropertyRef Name="sondage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mbaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="oeuvre" EntityType="Self.oeuvre" />
+          <EntitySet Name="oeuvreparsondage" EntityType="Self.oeuvreparsondage" />
+          <EntitySet Name="sondage" EntityType="Self.sondage" />
+          <AssociationSet Name="OeuvreParSondage_ibfk_1" Association="Self.OeuvreParSondage_ibfk_1">
+            <End Role="sondage" EntitySet="sondage" />
+            <End Role="oeuvreparsondage" EntitySet="oeuvreparsondage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mbaModelStoreContainer" CdmEntityContainer="mbaEntities">
+          <EntitySetMapping Name="oeuvre">
+            <EntityTypeMapping TypeName="mbaModel.oeuvre">
+              <MappingFragment StoreEntitySet="oeuvre">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="auteur" ColumnName="auteur" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="url_img" ColumnName="url_img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oeuvreparsondage">
+            <EntityTypeMapping TypeName="mbaModel.oeuvreparsondage">
+              <MappingFragment StoreEntitySet="oeuvreparsondage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="auteur" ColumnName="auteur" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="url_img" ColumnName="url_img" />
+                <ScalarProperty Name="sondage_id" ColumnName="sondage_id" />
+                <ScalarProperty Name="nb_votes" ColumnName="nb_votes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sondage">
+            <EntityTypeMapping TypeName="mbaModel.sondage">
+              <MappingFragment StoreEntitySet="sondage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="en_cours" ColumnName="en_cours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

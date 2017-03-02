@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mbaModelStoreContainer" CdmEntityContainer="mbaEntities">
+    <EntitySetMapping Name="oeuvre">
+      <EntityTypeMapping TypeName="mbaModel.oeuvre">
+        <MappingFragment StoreEntitySet="oeuvre">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="auteur" ColumnName="auteur" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oeuvreparsondage">
+      <EntityTypeMapping TypeName="mbaModel.oeuvreparsondage">
+        <MappingFragment StoreEntitySet="oeuvreparsondage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="auteur" ColumnName="auteur" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="sondage_id" ColumnName="sondage_id" />
+          <ScalarProperty Name="nb_votes" ColumnName="nb_votes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sondage">
+      <EntityTypeMapping TypeName="mbaModel.sondage">
+        <MappingFragment StoreEntitySet="sondage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="en_cours" ColumnName="en_cours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -12,6 +12,7 @@ namespace Reserves_sol
 {
     public partial class Importer : Form
     {
+        mbaEntities db = new mbaEntities();
         public Importer()
         {
             InitializeComponent();
@@ -32,7 +33,8 @@ namespace Reserves_sol
                 {
                     Console.WriteLine("ERROR - FILE IS NOT XML: "+filename);
                     //AFFICHE MESSAGE ERREUR
-                    errorLabel.Text = "Veuillez sélectionner un fichier .xml";
+                    var o = db.oeuvre.First();
+                    errorLabel.Text = o.titre;//"Veuillez sélectionner un fichier .xml";
                 }
                 else
                 {

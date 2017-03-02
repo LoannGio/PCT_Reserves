@@ -13,3 +13,13 @@ c:\users\loann\documents\visual studio 2015\Projects\Reserves_sol\Reserves_sol\o
 C:\Users\Maxence\Desktop\PCT_Reserves\Reserves_sol\Reserves_sol\bin\Debug\Reserves_sol.exe.config
 C:\Users\Maxence\Desktop\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.exe
 C:\Users\Maxence\Desktop\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.pdb
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\Debug\Reserves_sol.exe.config
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.exe
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.pdb
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.csprojResolveAssemblyReference.cache
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.Accueil.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.Creer.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.Importer.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.InfoSondage.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.Properties.Resources.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.csproj.GenerateResource.Cache
