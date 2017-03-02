@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 16 Février 2017 à 17:34
+-- Généré le :  Jeu 02 Mars 2017 à 15:46
 -- Version du serveur :  5.7.17-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.13-0ubuntu0.16.04.1
 
@@ -89,16 +89,17 @@ CREATE TABLE `Sondage` (
   `titre` varchar(64) CHARACTER SET utf8 NOT NULL,
   `description` text CHARACTER SET utf8 NOT NULL,
   `date_debut` datetime NOT NULL,
-  `date_fin` datetime NOT NULL
+  `date_fin` datetime NOT NULL,
+  `en_cours` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `Sondage`
 --
 
-INSERT INTO `Sondage` (`id`, `titre`, `description`, `date_debut`, `date_fin`) VALUES
-(1, 'Concours mois de Mai', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus quam justo, non ullamcorper magna consequat non. Curabitur euismod dolor sed metus pretium, vel maximus velit accumsan. In sem metus, sollicitudin varius ornare a, porta euismod elit. In non vehicula urna. Nulla et vestibulum quam. Vivamus quis nibh nunc. Suspendisse sit amet mi pellentesque, ullamcorper turpis nec, lobortis dui. Sed diam tortor, interdum nec interdum ac, faucibus eu risus. Nunc sollicitudin enim purus, id congue metus fermentum sed. Vestibulum viverra elit non vehicula porta. Donec aliquet vitae libero non vulputate. Phasellus velit ipsum, sollicitudin in urna sit amet, congue dictum arcu. Aenean in ornare risus. Donec maximus, urna sit amet accumsan feugiat, felis mi lobortis felis, eu interdum felis diam molestie quam. Integer molestie, odio nec vehicula aliquam, erat sapien volutpat nibh, vitae hendrerit est neque eu leo. Proin tempus lacus id massa luctus mollis.\r\n\r\nPhasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. ', '2017-02-01 00:00:00', '2017-02-28 01:20:00'),
-(2, 'Festival histoire medieval', 'C\'est la fete mardi 5 décembre au musée !', '2017-02-08 11:30:00', '2017-05-31 20:51:00');
+INSERT INTO `Sondage` (`id`, `titre`, `description`, `date_debut`, `date_fin`, `en_cours`) VALUES
+(1, 'Concours mois de Mai', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus quam justo, non ullamcorper magna consequat non. Curabitur euismod dolor sed metus pretium, vel maximus velit accumsan. In sem metus, sollicitudin varius ornare a, porta euismod elit. In non vehicula urna. Nulla et vestibulum quam. Vivamus quis nibh nunc. Suspendisse sit amet mi pellentesque, ullamcorper turpis nec, lobortis dui. Sed diam tortor, interdum nec interdum ac, faucibus eu risus. Nunc sollicitudin enim purus, id congue metus fermentum sed. Vestibulum viverra elit non vehicula porta. Donec aliquet vitae libero non vulputate. Phasellus velit ipsum, sollicitudin in urna sit amet, congue dictum arcu. Aenean in ornare risus. Donec maximus, urna sit amet accumsan feugiat, felis mi lobortis felis, eu interdum felis diam molestie quam. Integer molestie, odio nec vehicula aliquam, erat sapien volutpat nibh, vitae hendrerit est neque eu leo. Proin tempus lacus id massa luctus mollis.\r\n\r\nPhasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. ', '2017-02-01 00:00:00', '2017-02-28 01:20:00', 0),
+(2, 'Festival histoire medieval', 'C\'est la fete mardi 5 décembre au musée !', '2017-02-08 11:30:00', '2017-05-31 20:51:00', 0);
 
 --
 -- Index pour les tables exportées
