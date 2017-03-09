@@ -31,15 +31,18 @@ namespace Reserves_sol
                 string filename = fileDialog.FileName;
                 if (filename.Split('.')[1] != "xml")
                 {
-                    Console.WriteLine("ERROR - FILE IS NOT XML: "+filename);
                     //AFFICHE MESSAGE ERREUR
-                    var o = db.oeuvre.First();
-                    errorLabel.Text = o.titre;//"Veuillez sélectionner un fichier .xml";
+                    errorLabel.Text = "Veuillez sélectionner un fichier .xml";
                 }
                 else
                 {
                     Console.WriteLine("OK - FILENAME: " + filename);
                     //IMPORTE DANS LA BD
+                    #region Split XML
+                    #endregion
+
+                    #region Suppression & Import
+                    #endregion
                 }
             }
         }
@@ -47,6 +50,11 @@ namespace Reserves_sol
         private void returnBut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_ajout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
