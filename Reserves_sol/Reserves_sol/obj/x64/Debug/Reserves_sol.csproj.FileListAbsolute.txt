@@ -16,3 +16,4 @@ C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x64\Debug\
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.exe
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.pdb
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\x64\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.Supprimer.resources

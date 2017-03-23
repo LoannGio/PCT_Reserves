@@ -35,7 +35,7 @@
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(12, 12);
+            this.Create.Location = new System.Drawing.Point(225, 24);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(105, 23);
             this.Create.TabIndex = 0;
@@ -45,20 +45,23 @@
             // 
             // Import
             // 
-            this.Import.Location = new System.Drawing.Point(149, 12);
+            this.Import.Location = new System.Drawing.Point(470, 24);
             this.Import.Name = "Import";
             this.Import.Size = new System.Drawing.Size(75, 23);
             this.Import.TabIndex = 1;
-            this.Import.Text = "Importer";
+            this.Import.Text = "BD Oeuvres";
             this.Import.UseVisualStyleBackColor = true;
             this.Import.Click += new System.EventHandler(this.Import_Click);
             // 
             // itemList
             // 
+            this.itemList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.itemList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemList.FormattingEnabled = true;
+            this.itemList.ItemHeight = 40;
             this.itemList.Location = new System.Drawing.Point(12, 68);
             this.itemList.Name = "itemList";
-            this.itemList.Size = new System.Drawing.Size(230, 355);
+            this.itemList.Size = new System.Drawing.Size(760, 404);
             this.itemList.TabIndex = 2;
             this.itemList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.itemList_MouseDoubleClick);
             // 
@@ -66,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 431);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.Import);
             this.Controls.Add(this.Create);

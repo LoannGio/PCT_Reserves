@@ -12,32 +12,43 @@ namespace Reserves_sol
 {
     public partial class Accueil : Form
     {
+        public mbaEntities db = new mbaEntities();
         public Accueil()
         {
             InitializeComponent();
-            
 
-            List<Sondage> db_sondages = new List<Sondage>();
-            Sondage son = new Sondage();
-            son.titre = "Sondage 1";
-            son.description = "Je suis un sondage";
-            son.dateDebut = DateTime.Now.Date;
-            son.dateFin = DateTime.Now.Date.AddDays(3);
-            db_sondages.Add(son);
+            List<string> items = new List<string>();
+            #region Chargement de la liste de sondages
+            foreach (var sondage in db.sondage)
+            {
+                string str_add = "";
+                if (sondage.en_cours != 0)
+                    str_add += "En cours : ";
+                else
+                    str_add += "Terminé : ";
+                str_add += sondage.titre + "\n                 ";
+                str_add += "Début : " + sondage.date_debut.ToShortDateString() + " - ";
+                str_add += "Fin : " + sondage.date_fin.ToShortDateString();
+                items.Add(str_add);
+            }
+            #endregion
+            itemList.DataSource = items;
+            itemList.DrawItem += new DrawItemEventHandler(itemList_DrawItem);
+        }
 
-            Sondage so = new Sondage();
-            so.titre = "Sondage 2";
-            so.description = "Lorem ipsum dolor sit amet...";
-            so.dateDebut = DateTime.Now.Date;
-            so.dateFin = DateTime.Now.Date.AddDays(3);
-            db_sondages.Add(so);
+        private void itemList_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
+        {
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+            // Define the default color of the brush as black.
+            Brush myBrush = Brushes.Black;
 
-            Sondage s = new Sondage();
-            s.titre = "Sondage 3";
-            s.description = "Yet Another Sondage Sondage";
-            s.dateDebut = DateTime.Now.Date;
-            s.dateFin = DateTime.Now.Date.AddDays(3);
-            db_sondages.Add(s);
+            // Draw the current item text based on the current Font 
+            // and the custom brush settings.
+            e.Graphics.DrawString(itemList.Items[e.Index].ToString(),
+                e.Font, myBrush, e.Bounds, StringFormat.GenericDefault);
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -62,12 +73,23 @@ namespace Reserves_sol
 
         private void itemList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var form = new InfoSondage();
-            form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
-            form.FormClosing += delegate { this.Show(); };
-            form.Show();
-            this.Hide();
+            if (itemList.SelectedItem != null)
+            {
+                string infoSondage = itemList.SelectedItem.ToString();
+                string titreSondage = infoSondage.Split(':')[1].Split('\n')[0];
+                titreSondage = titreSondage.Substring(1);
+                var form = new InfoSondage(titreSondage);
+                form.Location = this.Location;
+                form.StartPosition = FormStartPosition.Manual;
+                form.FormClosing += delegate { this.Show(); };
+                form.Show();
+                this.Hide();
+            }
+        }
+
+        private void itemList_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
