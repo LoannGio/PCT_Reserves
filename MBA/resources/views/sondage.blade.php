@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 @extends('layouts.master')
 
 @section('title')

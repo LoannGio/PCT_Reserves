@@ -19,12 +19,18 @@ class WelcomeController extends Controller
     {
     	return view('oeuvres')->with('n',$n);	
     }
-    public function oeuvre($n)
+    public function oeuvre($s_id,$o_id)
     {
-    	return view('oeuvre')->with('n',$n);	
+    	return view('oeuvre')->with(compact('s_id', 'o_id'));	
     }
-    public function voter($n)
+    public function voter($s_id,$o_id)
     {
-    	return view('voter')->with('n',$n);	
+    	return view('voter')->with(compact('s_id', 'o_id'));
     }
+
+    public function remercie()
+    {
+        return view('remercie');
+    }
+     
 }

@@ -14,5 +14,8 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('/sondage/{n}', 'WelcomeController@sondage');
 Route::get('/oeuvres/{n}', 'WelcomeController@oeuvres');
-Route::get('/oeuvre/{n}', 'WelcomeController@oeuvre');
-Route::get('/voter/{n}', 'WelcomeController@voter');
+Route::get('/oeuvre/{s_id}/{o_id}', 'WelcomeController@oeuvre');
+Route::post('/voter/traitement/{s_id}/{o_id}', 'VoteController@postInfos');
+Route::get('/remercie', 'WelcomeController@remercie');
+
+
