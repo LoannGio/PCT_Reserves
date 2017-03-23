@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="{!! asset('js/jquery.dataTables.min.js') !!}"></script>
-    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+
 
     <script>$(document).ready(function() {
         $('#example').DataTable();

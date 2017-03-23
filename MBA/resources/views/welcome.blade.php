@@ -17,8 +17,8 @@
 	$sondages = DB::table('Sondage')->whereen_cours(0)->get();
 	echo'<br>';
 	echo'<h1 class="titre">Liste des sondages en cours </h1>';
-	echo'<table id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">';
-    	echo'<thead class="row">';
+	echo'<table id="example" class="display" cellspacing="0" width="80%">';
+    	echo'<thead>';
     		echo'<th>Titre</th>';
     		echo'<th>Date de début</th>';
     		echo'<th>Date de fin</th>';

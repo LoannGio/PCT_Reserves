@@ -19,6 +19,7 @@ class VoteController extends Controller
             return redirect('/remercie');
     	} else {
             return redirect()->action('WelcomeController@oeuvre', [$s_id,$o_id]);
+            //return view('voter')->with(compact('s_id', 'o_id'));
     	}
     	
     }

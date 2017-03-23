@@ -51,3 +51,18 @@ div.icone{
     text-align: center;
 }
 
+.dataTables_wrapper .dataTables_filter {
+    margin-right: 10%;
+}
+
+.dataTables_wrapper .dataTables_length {
+    margin-left: 10%;
+}
+
+.dataTables_wrapper .dataTables_info {
+    margin-left: 10%;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    margin-right: 10%;
+}

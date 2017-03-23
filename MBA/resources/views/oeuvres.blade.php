@@ -17,7 +17,7 @@
 		$sondage = DB::table('Sondage')->whereid($n)->first();
 		echo"<h1 class='titre'> Liste des oeuvres du sondage : $sondage->titre </h1>";
 		echo'<br> <br>';
-		echo'<table id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">';
+		echo'<table id="example" class="display" cellspacing="0" width="80%">';
 			echo'<thead>';
 				echo'<th> Image </th>';
 				echo'<th> Titre </th>';
