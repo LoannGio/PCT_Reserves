@@ -40,6 +40,9 @@
             this.data_enCours = new System.Windows.Forms.Label();
             this.End_button = new System.Windows.Forms.Button();
             this.oeuvresDataGridView = new System.Windows.Forms.DataGridView();
+            this.label_total_votes = new System.Windows.Forms.Label();
+            this.data_TotalVotes = new System.Windows.Forms.TextBox();
+            this.select_cb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +52,7 @@
             // 
             // returnBut
             // 
-            this.returnBut.Location = new System.Drawing.Point(348, 526);
+            this.returnBut.Location = new System.Drawing.Point(680, 526);
             this.returnBut.Name = "returnBut";
             this.returnBut.Size = new System.Drawing.Size(75, 23);
             this.returnBut.TabIndex = 0;
@@ -106,7 +109,7 @@
             // label_dateFin
             // 
             this.label_dateFin.AutoSize = true;
-            this.label_dateFin.Location = new System.Drawing.Point(46, 242);
+            this.label_dateFin.Location = new System.Drawing.Point(325, 212);
             this.label_dateFin.Name = "label_dateFin";
             this.label_dateFin.Size = new System.Drawing.Size(50, 13);
             this.label_dateFin.TabIndex = 8;
@@ -122,7 +125,7 @@
             // 
             // data_DateFin
             // 
-            this.data_DateFin.Location = new System.Drawing.Point(145, 242);
+            this.data_DateFin.Location = new System.Drawing.Point(401, 209);
             this.data_DateFin.Name = "data_DateFin";
             this.data_DateFin.ReadOnly = true;
             this.data_DateFin.Size = new System.Drawing.Size(76, 20);
@@ -152,6 +155,7 @@
             this.oeuvresDataGridView.AllowUserToDeleteRows = false;
             this.oeuvresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.oeuvresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.select_cb,
             this.Image,
             this.Titre,
             this.Auteur,
@@ -161,6 +165,30 @@
             this.oeuvresDataGridView.RowTemplate.Height = 150;
             this.oeuvresDataGridView.Size = new System.Drawing.Size(760, 236);
             this.oeuvresDataGridView.TabIndex = 13;
+            // 
+            // label_total_votes
+            // 
+            this.label_total_votes.AutoSize = true;
+            this.label_total_votes.Location = new System.Drawing.Point(10, 246);
+            this.label_total_votes.Name = "label_total_votes";
+            this.label_total_votes.Size = new System.Drawing.Size(102, 13);
+            this.label_total_votes.TabIndex = 14;
+            this.label_total_votes.Text = "Nombre votes total :";
+            // 
+            // data_TotalVotes
+            // 
+            this.data_TotalVotes.Location = new System.Drawing.Point(145, 243);
+            this.data_TotalVotes.Name = "data_TotalVotes";
+            this.data_TotalVotes.ReadOnly = true;
+            this.data_TotalVotes.Size = new System.Drawing.Size(76, 20);
+            this.data_TotalVotes.TabIndex = 15;
+            // 
+            // select_cb
+            // 
+            this.select_cb.HeaderText = "Sélec.";
+            this.select_cb.MinimumWidth = 15;
+            this.select_cb.Name = "select_cb";
+            this.select_cb.Width = 50;
             // 
             // Image
             // 
@@ -200,6 +228,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.data_TotalVotes);
+            this.Controls.Add(this.label_total_votes);
             this.Controls.Add(this.oeuvresDataGridView);
             this.Controls.Add(this.End_button);
             this.Controls.Add(this.data_enCours);
@@ -234,6 +264,9 @@
         private System.Windows.Forms.Label data_enCours;
         private System.Windows.Forms.Button End_button;
         private System.Windows.Forms.DataGridView oeuvresDataGridView;
+        private System.Windows.Forms.Label label_total_votes;
+        private System.Windows.Forms.TextBox data_TotalVotes;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn select_cb;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Auteur;

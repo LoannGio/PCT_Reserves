@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Reserves_sol
 {
@@ -42,12 +43,21 @@ namespace Reserves_sol
             data_descr.Text = my_sondage.description;
             data_dateDebut.Text = my_sondage.date_debut.ToShortDateString();
             data_DateFin.Text = my_sondage.date_fin.ToShortDateString();
+
+            int? nbVotesTotal = 0;
+            foreach(var o in db.oeuvreparsondage.Where(x => x.sondage_id == my_sondage.id).ToList())
+            {
+                nbVotesTotal += o.nb_votes;
+            }
+            data_TotalVotes.Text = nbVotesTotal.ToString();
+
             #endregion
 
             #region Remplissage de la DataGridView d'oeuvres
             foreach (var o in my_sondage.oeuvreparsondage.ToList())
             {
-                oeuvresDataGridView.Rows.Add(new Bitmap(LoadImage(o.url_img), new Size(200,150)),o.titre,o.auteur,o.description);
+                int? nbVotes = db.oeuvreparsondage.Where(x => x.sondage_id == my_sondage.id && x.titre == o.titre).First().nb_votes;
+                oeuvresDataGridView.Rows.Add(nbVotes, new Bitmap(LoadImage(o.url_img), new Size(200,150)),o.titre,o.auteur,o.description);
             }
             oeuvresDataGridView.Refresh();
             #endregion
@@ -70,12 +80,16 @@ namespace Reserves_sol
 
                 return bmp;
             }
-            catch(System.Net.WebException we)
+            catch (System.Net.WebException we)
             {
 
-                return new Bitmap("~/Datas/NoImageFound.png");
+                var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+                var iconPath = Path.Combine(outPutDirectory, "..\\..\\..\\Datas\\NoImageFound.png");
+                string icon_path = new Uri(iconPath).LocalPath;
+                Console.WriteLine(" * ****************************************" + icon_path);
+                return new Bitmap(icon_path);
             }
-            
+
         }
 
 

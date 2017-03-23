@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Reserves_sol
 {
@@ -57,7 +58,11 @@ namespace Reserves_sol
             catch (System.Net.WebException we)
             {
 
-                return new Bitmap("~/Datas/NoImageFound.png");
+                var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+                var iconPath = Path.Combine(outPutDirectory, "..\\..\\..\\Datas\\NoImageFound.png");
+                string icon_path = new Uri(iconPath).LocalPath;
+                Console.WriteLine(" * ****************************************" + icon_path);
+                return new Bitmap(icon_path);
             }
 
         }
