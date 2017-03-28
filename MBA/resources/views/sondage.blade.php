@@ -11,17 +11,44 @@
 
 @section('content')
 
+<br> <br> 
+
 <?php
 
-$sondage = DB::table('Sondage')->whereid($n)->first();
-echo $sondage->titre, '<br>';
-echo $sondage->description, '<br>';
-echo $sondage->date_debut, '<br>';
-echo $sondage->date_fin, '<br>';
-echo "<a href='../oeuvres/$sondage->id'>Listes d'oeuvres</a>";
+echo'<table class="tab">';
 
+$sondage = DB::table('Sondage')->whereid($n)->first();
+
+echo'<tr class=trtab>';
+	echo'<th class=th1>';
+		echo $sondage->titre, '<hr>';
+	echo'</th>';
+	echo'<th class=th2>';
+		echo "<a class='myButton' href='../oeuvres/$sondage->id'>Listes d'oeuvres</a>";
+	echo'</th>';
+echo'</tr>';
+
+echo'<tr class=trtab>';
+	echo'<td class="td1">';
+		echo $sondage->description, '<hr>';
+	echo'</td>';
+	echo'<td class="td2" rowspan="2">';
+
+	echo'</td>';
+echo'</tr>';
+
+echo'<tr class=trtab>';
+	echo'<td class="td1">';
+		echo "Commencer le : ",$sondage->date_debut, '<br>';
+		echo "Se finit le : ",$sondage->date_fin, '<br>';
+	echo'</td>';
+
+echo'</tr>';	
+
+echo'</table>';
 
 ?>
+
 
 @stop	
 </html>

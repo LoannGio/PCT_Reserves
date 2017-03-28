@@ -34,10 +34,10 @@ footer{
     background-color:#58D3F7; /*Couleur de fond*/
     text-align:left;/*texte centré*/
     position:relative;left: 0; right: 0;
-    bottom:0px;
+    bottom:-5px;
     width:100%;   
     height:20%;
-
+    margin-top: 35px;
 }
 
 h1.titre{
@@ -65,4 +65,87 @@ div.icone{
 
 .dataTables_wrapper .dataTables_paginate {
     margin-right: 10%;
+}
+
+.tab{
+    text-align: left;
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 20%;
+}
+
+.th1{
+    width:80%;
+}
+
+.th2{
+    text-align: center;
+}
+
+
+
+div.button{
+    margin-left: 50%;
+    margin-top: -10%
+}
+
+.myButton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#777777;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+
+
+.image img {
+/* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
+-webkit-transition: all 1s ease; /* Safari et Chrome */
+-moz-transition: all 1s ease; /* Firefox */
+-ms-transition: all 1s ease; /* Internet Explorer 9 */
+-o-transition: all 1s ease; /* Opera */
+transition: all 1s ease;
+cursor: url("../images/zoom.png"), pointer;
+}
+.image:hover img {
+/* L'image est grossie de 25% */
+-webkit-transform:scale(2.25); /* Safari et Chrome */
+-moz-transform:scale(2.25); /* Firefox */
+-ms-transform:scale(2.25); /* Internet Explorer 9 */
+-o-transform:scale(2.25); /* Opera */
+transform:scale(2.25);
 }

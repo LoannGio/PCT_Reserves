@@ -9,6 +9,7 @@
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="{!! asset('js/jquery.dataTables.min.js') !!}"></script>
 
+    <script type="text/javascript" src="{!! asset('js/img.js') !!}"></script>
 
     <script>$(document).ready(function() {
         $('#example').DataTable();
@@ -32,6 +33,7 @@
 	    	
     	</table>
     </div>
+
 
     <ul>
         <li><a href="/">Accueil</a></li>

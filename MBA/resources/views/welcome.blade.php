@@ -37,7 +37,7 @@
 	    		echo $sondage->date_fin;
 	    	echo'</td>';
 	    	echo'<td>';	
-	    		echo "<a href='sondage/$sondage->id'>Voir plus</a>";
+	    		echo "<a class='myButton' href='sondage/$sondage->id'>Voir plus</a>";
 	    	echo'</td>';	
 	    echo'</tr>';	
 	}

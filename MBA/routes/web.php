@@ -19,3 +19,4 @@ Route::post('/voter/traitement/{s_id}/{o_id}', 'VoteController@postInfos');
 Route::get('/remercie', 'WelcomeController@remercie');
 
 
+

@@ -11,8 +11,8 @@
 
 @section('content')
 	    
+	<br><br>    
 	<?php
-		echo'<br>';
 		$oeuvres = DB::table('OeuvreParSondage')->wheresondage_id($n)->get();
 		$sondage = DB::table('Sondage')->whereid($n)->first();
 		echo"<h1 class='titre'> Liste des oeuvres du sondage : $sondage->titre </h1>";
@@ -29,7 +29,11 @@
 		foreach ($oeuvres as $oeuvre) {
 			echo'<tr>';
 				echo'<td>';
-					echo "<img src='{$oeuvre->url_img}' alt='profile Pic' height='180' width='180'>";
+					echo'<div class=zoom>';
+					echo'<div class=image>';
+						echo "<img src='{$oeuvre->url_img}' alt='profile Pic' height='180' width='180'>";
+					echo'</div>';
+					echo'</div>';			
 				echo'</td>';
 				echo'<td>';
 					echo $oeuvre->titre;
@@ -42,7 +46,7 @@
 					echo $description."(...)";
 				echo'</td>';
 				echo'<td>';
-					echo "<CENTER><a href='../oeuvre/$n/$oeuvre->id'>Voter</a></CENTER>";
+					echo "<CENTER><a class='myButton' href='../oeuvre/$n/$oeuvre->id'>Voter</a></CENTER>";
 				echo'</td>';	
 			echo'</tr>';		
 			}
