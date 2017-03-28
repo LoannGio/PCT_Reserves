@@ -9,7 +9,6 @@ use DB;
 class VoteController extends Controller
 {
     public function postInfos(Request $request,$s_id,$o_id) {
-    
     	$token = $request->input('g-recaptcha-response');
     	if (strlen($token) > 0) {
             DB::table('OeuvreParSondage')->where([

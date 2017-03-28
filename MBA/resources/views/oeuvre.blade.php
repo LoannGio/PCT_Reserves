@@ -34,30 +34,29 @@ $oeuvre = DB::table('OeuvreParSondage')->whereid($o_id)->first()
 	</tr>
 	<tr>
 		<td>
-			Auteur: <?php echo $oeuvre->auteur ?> <hr>
+			Auteur: <?php echo $oeuvre->auteur ?>  <hr> 
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?php echo $oeuvre->description ?> <hr>
+			<?php echo $oeuvre->description ?> <hr> 
 		</td>
 	</tr>
-	<tr>
-		<form method="post" action="../../../voter/traitement/<?php echo"$s_id"?>/<?php echo"$o_id"?>/" id ="form">
-		{!! csrf_field() !!}
-			<td>
-				<div  class="captcha"> 
-		 			{!! app('captcha')->display($attributes = [], $lang = "Fr") !!}
-				</div>
-				<div class="button"> 
-					<input class="myButton" type="submit" value="Voter" />
-				</div>
-			</td>
 
-		</form>	
-	</tr>
 </table>
+	
+<br> <br>	
 
+	<form method="post" action="../../../voter/traitement/<?php echo"$s_id"?>/<?php echo"$o_id"?>/" id ="form">
+	{!! csrf_field() !!}
+		
+			<div class="captcha"> 
+	 			{!! app('captcha')->display($attributes = [], $lang = "Fr") !!}
+			</div>
+			<div class="button"> 
+				<input class="myButton" type="submit" value="Voter" />
+			</div>
+	</form>	
 
 @stop	
 </html>
