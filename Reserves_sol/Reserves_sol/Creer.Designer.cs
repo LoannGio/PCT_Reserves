@@ -31,7 +31,7 @@
             this.returnBut = new System.Windows.Forms.Button();
             this.label_title = new System.Windows.Forms.Label();
             this.label_descr = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.data_title = new System.Windows.Forms.TextBox();
             this.data_descr = new System.Windows.Forms.TextBox();
             this.label_dateDebut = new System.Windows.Forms.Label();
             this.label_dateFin = new System.Windows.Forms.Label();
@@ -39,12 +39,14 @@
             this.data_DateFin = new System.Windows.Forms.DateTimePicker();
             this.label_askSelect = new System.Windows.Forms.Label();
             this.oeuvresDataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.but_create = new System.Windows.Forms.Button();
+            this.label_sélecInfo = new System.Windows.Forms.Label();
+            this.data_selecNumber = new System.Windows.Forms.Label();
+            this.select_cb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.but_create = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.oeuvresDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +78,13 @@
             this.label_descr.TabIndex = 2;
             this.label_descr.Text = "Description :";
             // 
-            // textBox1
+            // data_title
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 20);
-            this.textBox1.TabIndex = 3;
+            this.data_title.Location = new System.Drawing.Point(150, 25);
+            this.data_title.MaxLength = 64;
+            this.data_title.Name = "data_title";
+            this.data_title.Size = new System.Drawing.Size(544, 20);
+            this.data_title.TabIndex = 3;
             // 
             // data_descr
             // 
@@ -140,7 +143,7 @@
             this.oeuvresDataGridView.AllowUserToDeleteRows = false;
             this.oeuvresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.oeuvresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.select_cb,
             this.Image,
             this.Titre,
             this.Auteur,
@@ -150,14 +153,44 @@
             this.oeuvresDataGridView.RowTemplate.Height = 150;
             this.oeuvresDataGridView.Size = new System.Drawing.Size(760, 236);
             this.oeuvresDataGridView.TabIndex = 16;
+            this.oeuvresDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.oeuvresDataGridView_CellContentClick);
             // 
-            // Column1
+            // but_create
             // 
-            this.Column1.HeaderText = "Votes";
-            this.Column1.MinimumWidth = 20;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
+            this.but_create.Location = new System.Drawing.Point(357, 526);
+            this.but_create.Name = "but_create";
+            this.but_create.Size = new System.Drawing.Size(75, 23);
+            this.but_create.TabIndex = 17;
+            this.but_create.Text = "Créer";
+            this.but_create.UseVisualStyleBackColor = true;
+            this.but_create.Click += new System.EventHandler(this.but_create_Click);
+            // 
+            // label_sélecInfo
+            // 
+            this.label_sélecInfo.AutoSize = true;
+            this.label_sélecInfo.Location = new System.Drawing.Point(318, 238);
+            this.label_sélecInfo.Name = "label_sélecInfo";
+            this.label_sélecInfo.Size = new System.Drawing.Size(43, 13);
+            this.label_sélecInfo.TabIndex = 18;
+            this.label_sélecInfo.Text = "Sélec. :";
+            // 
+            // data_selecNumber
+            // 
+            this.data_selecNumber.AutoSize = true;
+            this.data_selecNumber.Location = new System.Drawing.Point(367, 238);
+            this.data_selecNumber.Name = "data_selecNumber";
+            this.data_selecNumber.Size = new System.Drawing.Size(0, 13);
+            this.data_selecNumber.TabIndex = 19;
+            // 
+            // select_cb
+            // 
+            this.select_cb.FalseValue = "False";
+            this.select_cb.HeaderText = "Sélec.";
+            this.select_cb.IndeterminateValue = "NULL";
+            this.select_cb.MinimumWidth = 10;
+            this.select_cb.Name = "select_cb";
+            this.select_cb.TrueValue = "True";
+            this.select_cb.Width = 50;
             // 
             // Image
             // 
@@ -191,20 +224,13 @@
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
-            // but_create
-            // 
-            this.but_create.Location = new System.Drawing.Point(357, 526);
-            this.but_create.Name = "but_create";
-            this.but_create.Size = new System.Drawing.Size(75, 23);
-            this.but_create.TabIndex = 17;
-            this.but_create.Text = "Créer";
-            this.but_create.UseVisualStyleBackColor = true;
-            // 
             // Creer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.data_selecNumber);
+            this.Controls.Add(this.label_sélecInfo);
             this.Controls.Add(this.but_create);
             this.Controls.Add(this.oeuvresDataGridView);
             this.Controls.Add(this.label_askSelect);
@@ -213,7 +239,7 @@
             this.Controls.Add(this.label_dateFin);
             this.Controls.Add(this.label_dateDebut);
             this.Controls.Add(this.data_descr);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.data_title);
             this.Controls.Add(this.label_descr);
             this.Controls.Add(this.label_title);
             this.Controls.Add(this.returnBut);
@@ -230,7 +256,7 @@
         private System.Windows.Forms.Button returnBut;
         private System.Windows.Forms.Label label_title;
         private System.Windows.Forms.Label label_descr;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox data_title;
         private System.Windows.Forms.TextBox data_descr;
         private System.Windows.Forms.Label label_dateDebut;
         private System.Windows.Forms.Label label_dateFin;
@@ -238,11 +264,13 @@
         private System.Windows.Forms.DateTimePicker data_DateFin;
         private System.Windows.Forms.Label label_askSelect;
         private System.Windows.Forms.DataGridView oeuvresDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button but_create;
+        private System.Windows.Forms.Label label_sélecInfo;
+        private System.Windows.Forms.Label data_selecNumber;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn select_cb;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Auteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.Button but_create;
     }
 }

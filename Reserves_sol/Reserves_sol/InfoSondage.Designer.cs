@@ -42,7 +42,7 @@
             this.oeuvresDataGridView = new System.Windows.Forms.DataGridView();
             this.label_total_votes = new System.Windows.Forms.Label();
             this.data_TotalVotes = new System.Windows.Forms.TextBox();
-            this.select_cb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nbVotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,7 +155,7 @@
             this.oeuvresDataGridView.AllowUserToDeleteRows = false;
             this.oeuvresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.oeuvresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.select_cb,
+            this.nbVotes,
             this.Image,
             this.Titre,
             this.Auteur,
@@ -183,12 +183,13 @@
             this.data_TotalVotes.Size = new System.Drawing.Size(76, 20);
             this.data_TotalVotes.TabIndex = 15;
             // 
-            // select_cb
+            // nbVotes
             // 
-            this.select_cb.HeaderText = "Sélec.";
-            this.select_cb.MinimumWidth = 15;
-            this.select_cb.Name = "select_cb";
-            this.select_cb.Width = 50;
+            this.nbVotes.HeaderText = "Votes";
+            this.nbVotes.MinimumWidth = 10;
+            this.nbVotes.Name = "nbVotes";
+            this.nbVotes.ReadOnly = true;
+            this.nbVotes.Width = 50;
             // 
             // Image
             // 
@@ -266,7 +267,7 @@
         private System.Windows.Forms.DataGridView oeuvresDataGridView;
         private System.Windows.Forms.Label label_total_votes;
         private System.Windows.Forms.TextBox data_TotalVotes;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn select_cb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbVotes;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Auteur;
