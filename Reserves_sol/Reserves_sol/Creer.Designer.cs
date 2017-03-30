@@ -202,6 +202,7 @@
             // 
             // Titre
             // 
+            this.Titre.DataPropertyName = "Titre";
             this.Titre.HeaderText = "Titre";
             this.Titre.MinimumWidth = 100;
             this.Titre.Name = "Titre";

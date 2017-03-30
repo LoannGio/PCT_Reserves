@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -54,6 +50,7 @@ namespace Reserves_sol
             #endregion
 
             #region Remplissage de la DataGridView d'oeuvres
+            oeuvresDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             foreach (var o in my_sondage.oeuvreparsondage.ToList())
             {
                 int? nbVotes = db.oeuvreparsondage.Where(x => x.sondage_id == my_sondage.id && x.titre == o.titre).First().nb_votes;

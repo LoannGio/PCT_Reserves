@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -16,26 +13,11 @@ namespace Reserves_sol
         public mbaEntities db = new mbaEntities();
         public BindingList<oeuvre> data = new BindingList<oeuvre>();
 
-
         public Supprimer()
         {
             InitializeComponent();
+            dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             showData();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           if(dataGridView1.CurrentRow != null)
-            {
-                int rowindex = dataGridView1.CurrentCell.RowIndex;
-                int columnindex = 1;
-                string titreOeuvreAsupprimer = dataGridView1.Rows[rowindex].Cells[columnindex].Value.ToString();
-                Console.WriteLine(titreOeuvreAsupprimer);
-                oeuvre oeuvreAsupprimer = db.oeuvre.Where(o => o.titre == titreOeuvreAsupprimer).First();
-                db.oeuvre.Remove(oeuvreAsupprimer);
-                db.SaveChanges();
-                showData();
-            }
         }
 
         private Image LoadImage(string url)
@@ -79,5 +61,26 @@ namespace Reserves_sol
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        #region Boutons
+        private void return_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                int rowindex = dataGridView1.CurrentCell.RowIndex;
+                int columnindex = 1;
+                string titreOeuvreAsupprimer = dataGridView1.Rows[rowindex].Cells[columnindex].Value.ToString();
+                Console.WriteLine(titreOeuvreAsupprimer);
+                oeuvre oeuvreAsupprimer = db.oeuvre.Where(o => o.titre == titreOeuvreAsupprimer).First();
+                db.oeuvre.Remove(oeuvreAsupprimer);
+                db.SaveChanges();
+                showData();
+            }
+        }
+        #endregion
     }
 }

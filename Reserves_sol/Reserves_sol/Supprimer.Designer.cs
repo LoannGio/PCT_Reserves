@@ -34,15 +34,17 @@
             this.ColumnTitre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAuteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.return_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(571, 13);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.button1.Location = new System.Drawing.Point(671, 23);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 62);
+            this.button1.Size = new System.Drawing.Size(100, 50);
             this.button1.TabIndex = 1;
             this.button1.Text = "Supprimer";
             this.button1.UseVisualStyleBackColor = true;
@@ -95,11 +97,24 @@
             this.ColumnDescription.Name = "ColumnDescription";
             this.ColumnDescription.ReadOnly = true;
             // 
+            // return_btn
+            // 
+            this.return_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.return_btn.Location = new System.Drawing.Point(13, 36);
+            this.return_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.return_btn.Name = "return_btn";
+            this.return_btn.Size = new System.Drawing.Size(75, 25);
+            this.return_btn.TabIndex = 3;
+            this.return_btn.Text = "Retour";
+            this.return_btn.UseVisualStyleBackColor = true;
+            this.return_btn.Click += new System.EventHandler(this.return_btn_Click);
+            // 
             // Supprimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.return_btn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,5 +133,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAuteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
+        private System.Windows.Forms.Button return_btn;
     }
 }
