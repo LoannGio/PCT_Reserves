@@ -20,6 +20,7 @@ namespace Reserves_sol
         public InfoSondage(string titreSondage)
         {
             InitializeComponent();
+            label_sondage_expired.Text = "";
             this.Text = titreSondage;
             my_sondage = db.sondage.FirstOrDefault(x => x.titre == titreSondage);
 
@@ -40,6 +41,10 @@ namespace Reserves_sol
             data_dateDebut.Text = my_sondage.date_debut.ToShortDateString();
             data_DateFin.Text = my_sondage.date_fin.ToShortDateString();
 
+            //Si la date de fin est dépassée est que le sondage est encore en cours
+            if (DateTime.Now > my_sondage.date_fin && my_sondage.en_cours != 0) 
+                label_sondage_expired.Text = "La date de fin du sondage est passée !";
+
             int? nbVotesTotal = 0;
             foreach(var o in db.oeuvreparsondage.Where(x => x.sondage_id == my_sondage.id).ToList())
             {
@@ -51,7 +56,7 @@ namespace Reserves_sol
 
             #region Remplissage de la DataGridView d'oeuvres
             oeuvresDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            foreach (var o in my_sondage.oeuvreparsondage.ToList())
+            foreach (var o in my_sondage.oeuvreparsondage.ToList().OrderByDescending(x => x.nb_votes))
             {
                 int? nbVotes = db.oeuvreparsondage.Where(x => x.sondage_id == my_sondage.id && x.titre == o.titre).First().nb_votes;
                 oeuvresDataGridView.Rows.Add(nbVotes, new Bitmap(LoadImage(o.url_img), new Size(200,150)),o.titre,o.auteur,o.description);
@@ -88,7 +93,6 @@ namespace Reserves_sol
             }
 
         }
-
 
         #region Buttons
         private void returnBut_Click(object sender, EventArgs e)

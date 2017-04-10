@@ -39,7 +39,7 @@ namespace Reserves_sol
         {
             var form = new Creer(this);
             form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
@@ -49,7 +49,7 @@ namespace Reserves_sol
         {
             var form = new Importer();
             form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
@@ -66,7 +66,7 @@ namespace Reserves_sol
                 titreSondage = titreSondage.Substring(1);
                 var form = new InfoSondage(titreSondage);
                 form.Location = this.Location;
-                form.StartPosition = FormStartPosition.Manual;
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.FormClosing += delegate { this.Show(); };
                 form.Show();
                 this.Hide();

@@ -160,5 +160,12 @@ namespace Reserves_sol
             this.Close();
         }
         #endregion
+
+        private void data_dateDebut_ValueChanged(object sender, EventArgs e)
+        {
+            data_DateFin.MinDate = data_dateDebut.Value.AddDays(1);
+            if(data_dateDebut.Value >= data_DateFin.Value)
+                data_DateFin.Value = data_dateDebut.Value.AddDays(1);
+        }
     }
 }

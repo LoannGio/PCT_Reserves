@@ -42,6 +42,7 @@
             this.oeuvresDataGridView = new System.Windows.Forms.DataGridView();
             this.label_total_votes = new System.Windows.Forms.Label();
             this.data_TotalVotes = new System.Windows.Forms.TextBox();
+            this.label_sondage_expired = new System.Windows.Forms.Label();
             this.nbVotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +53,7 @@
             // 
             // returnBut
             // 
-            this.returnBut.Location = new System.Drawing.Point(680, 526);
+            this.returnBut.Location = new System.Drawing.Point(897, 726);
             this.returnBut.Name = "returnBut";
             this.returnBut.Size = new System.Drawing.Size(75, 23);
             this.returnBut.TabIndex = 0;
@@ -62,7 +63,7 @@
             // 
             // data_titre
             // 
-            this.data_titre.Location = new System.Drawing.Point(145, 59);
+            this.data_titre.Location = new System.Drawing.Point(279, 69);
             this.data_titre.Name = "data_titre";
             this.data_titre.ReadOnly = true;
             this.data_titre.Size = new System.Drawing.Size(544, 20);
@@ -71,7 +72,7 @@
             // data_descr
             // 
             this.data_descr.BackColor = System.Drawing.SystemColors.Control;
-            this.data_descr.Location = new System.Drawing.Point(145, 96);
+            this.data_descr.Location = new System.Drawing.Point(279, 106);
             this.data_descr.Multiline = true;
             this.data_descr.Name = "data_descr";
             this.data_descr.ReadOnly = true;
@@ -82,7 +83,7 @@
             // label_titre
             // 
             this.label_titre.AutoSize = true;
-            this.label_titre.Location = new System.Drawing.Point(78, 59);
+            this.label_titre.Location = new System.Drawing.Point(212, 69);
             this.label_titre.Name = "label_titre";
             this.label_titre.Size = new System.Drawing.Size(34, 13);
             this.label_titre.TabIndex = 5;
@@ -91,7 +92,7 @@
             // label_descr
             // 
             this.label_descr.AutoSize = true;
-            this.label_descr.Location = new System.Drawing.Point(46, 96);
+            this.label_descr.Location = new System.Drawing.Point(180, 106);
             this.label_descr.Name = "label_descr";
             this.label_descr.Size = new System.Drawing.Size(66, 13);
             this.label_descr.TabIndex = 6;
@@ -100,7 +101,7 @@
             // label_dateDebut
             // 
             this.label_dateDebut.AutoSize = true;
-            this.label_dateDebut.Location = new System.Drawing.Point(46, 212);
+            this.label_dateDebut.Location = new System.Drawing.Point(180, 222);
             this.label_dateDebut.Name = "label_dateDebut";
             this.label_dateDebut.Size = new System.Drawing.Size(66, 13);
             this.label_dateDebut.TabIndex = 7;
@@ -109,7 +110,7 @@
             // label_dateFin
             // 
             this.label_dateFin.AutoSize = true;
-            this.label_dateFin.Location = new System.Drawing.Point(325, 212);
+            this.label_dateFin.Location = new System.Drawing.Point(459, 222);
             this.label_dateFin.Name = "label_dateFin";
             this.label_dateFin.Size = new System.Drawing.Size(50, 13);
             this.label_dateFin.TabIndex = 8;
@@ -117,7 +118,7 @@
             // 
             // data_dateDebut
             // 
-            this.data_dateDebut.Location = new System.Drawing.Point(145, 205);
+            this.data_dateDebut.Location = new System.Drawing.Point(279, 215);
             this.data_dateDebut.Name = "data_dateDebut";
             this.data_dateDebut.ReadOnly = true;
             this.data_dateDebut.Size = new System.Drawing.Size(76, 20);
@@ -125,7 +126,7 @@
             // 
             // data_DateFin
             // 
-            this.data_DateFin.Location = new System.Drawing.Point(401, 209);
+            this.data_DateFin.Location = new System.Drawing.Point(535, 219);
             this.data_DateFin.Name = "data_DateFin";
             this.data_DateFin.ReadOnly = true;
             this.data_DateFin.Size = new System.Drawing.Size(76, 20);
@@ -134,14 +135,14 @@
             // data_enCours
             // 
             this.data_enCours.AutoSize = true;
-            this.data_enCours.Location = new System.Drawing.Point(325, 18);
+            this.data_enCours.Location = new System.Drawing.Point(459, 28);
             this.data_enCours.Name = "data_enCours";
             this.data_enCours.Size = new System.Drawing.Size(0, 13);
             this.data_enCours.TabIndex = 11;
             // 
             // End_button
             // 
-            this.End_button.Location = new System.Drawing.Point(680, 8);
+            this.End_button.Location = new System.Drawing.Point(814, 18);
             this.End_button.Name = "End_button";
             this.End_button.Size = new System.Drawing.Size(75, 23);
             this.End_button.TabIndex = 12;
@@ -153,6 +154,7 @@
             // 
             this.oeuvresDataGridView.AllowUserToAddRows = false;
             this.oeuvresDataGridView.AllowUserToDeleteRows = false;
+            this.oeuvresDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.oeuvresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.oeuvresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nbVotes,
@@ -160,16 +162,16 @@
             this.Titre,
             this.Auteur,
             this.Description});
-            this.oeuvresDataGridView.Location = new System.Drawing.Point(12, 284);
+            this.oeuvresDataGridView.Location = new System.Drawing.Point(24, 306);
             this.oeuvresDataGridView.Name = "oeuvresDataGridView";
             this.oeuvresDataGridView.RowTemplate.Height = 150;
-            this.oeuvresDataGridView.Size = new System.Drawing.Size(760, 236);
+            this.oeuvresDataGridView.Size = new System.Drawing.Size(932, 404);
             this.oeuvresDataGridView.TabIndex = 13;
             // 
             // label_total_votes
             // 
             this.label_total_votes.AutoSize = true;
-            this.label_total_votes.Location = new System.Drawing.Point(10, 246);
+            this.label_total_votes.Location = new System.Drawing.Point(144, 256);
             this.label_total_votes.Name = "label_total_votes";
             this.label_total_votes.Size = new System.Drawing.Size(102, 13);
             this.label_total_votes.TabIndex = 14;
@@ -177,11 +179,22 @@
             // 
             // data_TotalVotes
             // 
-            this.data_TotalVotes.Location = new System.Drawing.Point(145, 243);
+            this.data_TotalVotes.Location = new System.Drawing.Point(279, 253);
             this.data_TotalVotes.Name = "data_TotalVotes";
             this.data_TotalVotes.ReadOnly = true;
             this.data_TotalVotes.Size = new System.Drawing.Size(76, 20);
             this.data_TotalVotes.TabIndex = 15;
+            // 
+            // label_sondage_expired
+            // 
+            this.label_sondage_expired.AutoSize = true;
+            this.label_sondage_expired.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_sondage_expired.ForeColor = System.Drawing.Color.Red;
+            this.label_sondage_expired.Location = new System.Drawing.Point(649, 222);
+            this.label_sondage_expired.Name = "label_sondage_expired";
+            this.label_sondage_expired.Size = new System.Drawing.Size(41, 13);
+            this.label_sondage_expired.TabIndex = 17;
+            this.label_sondage_expired.Text = "expired";
             // 
             // nbVotes
             // 
@@ -202,24 +215,24 @@
             // Titre
             // 
             this.Titre.HeaderText = "Titre";
-            this.Titre.MinimumWidth = 100;
+            this.Titre.MinimumWidth = 50;
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
-            this.Titre.Width = 200;
+            this.Titre.Width = 250;
             // 
             // Auteur
             // 
             this.Auteur.HeaderText = "Auteur";
-            this.Auteur.MinimumWidth = 100;
+            this.Auteur.MinimumWidth = 50;
             this.Auteur.Name = "Auteur";
             this.Auteur.ReadOnly = true;
-            this.Auteur.Width = 150;
+            this.Auteur.Width = 200;
             // 
             // Description
             // 
             this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 100;
+            this.Description.MinimumWidth = 50;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
@@ -228,7 +241,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.label_sondage_expired);
             this.Controls.Add(this.data_TotalVotes);
             this.Controls.Add(this.label_total_votes);
             this.Controls.Add(this.oeuvresDataGridView);
@@ -267,6 +281,7 @@
         private System.Windows.Forms.DataGridView oeuvresDataGridView;
         private System.Windows.Forms.Label label_total_votes;
         private System.Windows.Forms.TextBox data_TotalVotes;
+        private System.Windows.Forms.Label label_sondage_expired;
         private System.Windows.Forms.DataGridViewTextBoxColumn nbVotes;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;

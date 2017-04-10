@@ -120,7 +120,7 @@ namespace Reserves_sol
         {
             var form = new Supprimer();
             form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();

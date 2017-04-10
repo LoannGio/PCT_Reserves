@@ -41,9 +41,9 @@
             this.import.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.import.Location = new System.Drawing.Point(436, 336);
             this.import.Name = "import";
-            this.import.Size = new System.Drawing.Size(100, 32);
+            this.import.Size = new System.Drawing.Size(186, 32);
             this.import.TabIndex = 1;
-            this.import.Text = "Importer";
+            this.import.Text = "Importer des oeuvres";
             this.import.UseVisualStyleBackColor = true;
             this.import.Click += new System.EventHandler(this.import_Click);
             // 
@@ -82,12 +82,12 @@
             // Supprimer
             // 
             this.Supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Supprimer.Location = new System.Drawing.Point(245, 336);
-            this.Supprimer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Supprimer.Location = new System.Drawing.Point(127, 336);
+            this.Supprimer.Margin = new System.Windows.Forms.Padding(2);
             this.Supprimer.Name = "Supprimer";
-            this.Supprimer.Size = new System.Drawing.Size(100, 32);
+            this.Supprimer.Size = new System.Drawing.Size(186, 32);
             this.Supprimer.TabIndex = 5;
-            this.Supprimer.Text = "Supprimer";
+            this.Supprimer.Text = "Supprimer une oeuvre";
             this.Supprimer.UseVisualStyleBackColor = true;
             this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
             // 
