@@ -84,11 +84,10 @@ namespace Reserves_sol
             }
             catch (System.Net.WebException we)
             {
-
                 var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
                 var iconPath = Path.Combine(outPutDirectory, "..\\..\\..\\Datas\\NoImageFound.png");
                 string icon_path = new Uri(iconPath).LocalPath;
-                Console.WriteLine(" * ****************************************" + icon_path);
+                Console.WriteLine("-------"+iconPath);
                 return new Bitmap(icon_path);
             }
 

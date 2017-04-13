@@ -31,3 +31,4 @@ C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\Debug\MySq
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\Debug\EntityFramework.xml
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.Supprimer.resources
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\Debug\Reserves_sol.csprojResolveAssemblyReference.cache

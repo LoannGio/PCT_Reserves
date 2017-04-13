@@ -63,14 +63,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F56EE18435866EB331E21522D55674C3"
-        "OwnerKey" = "8:_2872C190612E492D93C76BB1424292B9"
+        "MsmKey" = "8:_A771855DC36E452DB33D71AE153E6A54"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0C79FCF27191D0E7711A07E9193CF03C"
+        "MsmKey" = "8:_F56EE18435866EB331E21522D55674C3"
+        "OwnerKey" = "8:_2872C190612E492D93C76BB1424292B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -103,6 +103,12 @@
         "OwnerKey" = "8:_A5928794ECBFC91A5B89DAC6F84C3F92"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0C79FCF27191D0E7711A07E9193CF03C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -121,6 +127,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -137,6 +151,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -290,6 +312,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A771855DC36E452DB33D71AE153E6A54"
+            {
+            "SourcePath" = "8:..\\Reserves_sol\\Datas\\NoImageFound.png"
+            "TargetName" = "8:NoImageFound.png"
+            "Tag" = "8:"
+            "Folder" = "8:_9A88FC39B4D84789AFBE369DFFE88FA1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F56EE18435866EB331E21522D55674C3"
             {
             "AssemblyRegister" = "3:1"
@@ -348,6 +390,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_9A88FC39B4D84789AFBE369DFFE88FA1"
+                    {
+                    "Name" = "8:Datas"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_6CD035286FBB4980A62EF9ADB48B5DEB"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_F2BB1A5C9881411AA0B396EC51BFD2F7"
@@ -359,17 +412,6 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5F599418914E4AE09C6AA479124B38E8"
-                    {
-                    "Name" = "8:Reserves_sol"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_5A0CD541C0074525A3F7E7422A36B048"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
         }
@@ -509,20 +551,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_76E068EE91F64DF088E1BAE32235FCDE"
-            {
-            "Name" = "8:Reserves_sol (Active)"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_2872C190612E492D93C76BB1424292B9"
-            "Folder" = "8:_5F599418914E4AE09C6AA479124B38E8"
-            "WorkingFolder" = "8:_B796115D63EF475985082BAFCE880297"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_921185C1F1EA4DFBA683E26E204D4FE9"
             {
             "Name" = "8:Reserves_sol (Active)"
@@ -938,7 +966,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2872C190612E492D93C76BB1424292B9"
             {
-            "SourcePath" = "8:..\\Reserves_sol\\obj\\x64\\Debug\\Reserves_sol.exe"
+            "SourcePath" = "8:..\\Reserves_sol\\obj\\Debug\\Reserves_sol.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B796115D63EF475985082BAFCE880297"
