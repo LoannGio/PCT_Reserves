@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:AppVotes"
-"LanguageId" = "3:1033"
+"LanguageId" = "3:1036"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1033"
+"UILanguageId" = "3:1036"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -69,8 +69,13 @@
         }
         "Entry"
         {
+<<<<<<< HEAD
         "MsmKey" = "8:_F56EE18435866EB331E21522D55674C3"
         "OwnerKey" = "8:_2872C190612E492D93C76BB1424292B9"
+=======
+        "MsmKey" = "8:_FD5E4F2FFD104856A370C8800F1D5BFC"
+        "OwnerKey" = "8:_UNDEFINED"
+>>>>>>> export
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -134,6 +139,17 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+<<<<<<< HEAD
+=======
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+>>>>>>> export
             }
         }
         "Release"
@@ -158,6 +174,17 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+<<<<<<< HEAD
+=======
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+>>>>>>> export
             }
         }
     }
@@ -363,6 +390,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FD5E4F2FFD104856A370C8800F1D5BFC"
+            {
+            "SourcePath" = "8:..\\Reserves_sol\\Datas\\NoImageFound.png"
+            "TargetName" = "8:NoImageFound.png"
+            "Tag" = "8:"
+            "Folder" = "8:_995D7389D5CA424A8F98A7E80572A81D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -372,7 +419,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_88523BA1E3CD413F9E82F2D8FC8508E7"
             {
             "Name" = "8:#1916"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
@@ -382,7 +429,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_B796115D63EF475985082BAFCE880297"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -390,13 +437,21 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+<<<<<<< HEAD
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_9A88FC39B4D84789AFBE369DFFE88FA1"
+=======
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_995D7389D5CA424A8F98A7E80572A81D"
+>>>>>>> export
                     {
                     "Name" = "8:Datas"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
+<<<<<<< HEAD
                     "Property" = "8:_6CD035286FBB4980A62EF9ADB48B5DEB"
+=======
+                    "Property" = "8:_1CAEAB9A3449402394471EF87A38B430"
+>>>>>>> export
                         "Folders"
                         {
                         }
@@ -423,7 +478,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1033"
+        "LangId" = "3:1036"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
@@ -431,11 +486,11 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AppVotes"
         "ProductCode" = "8:{C840C7BC-2BC4-4CF3-87F5-0C3339D8DD14}"
-        "PackageCode" = "8:{5C094172-B47D-493E-A052-E9EC4F63CBF1}"
+        "PackageCode" = "8:{4629CE14-A139-4F8A-A8C1-764368F756A7}"
         "UpgradeCode" = "8:{AA925FBC-C1EE-43EA-A774-3E0DEA04AEA9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
@@ -452,7 +507,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -551,17 +606,21 @@
         }
         "Shortcut"
         {
+<<<<<<< HEAD
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_921185C1F1EA4DFBA683E26E204D4FE9"
+=======
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A5BC905C3FA1480BAB18B64CE6733BB3"
+>>>>>>> export
             {
-            "Name" = "8:Reserves_sol (Active)"
+            "Name" = "8:AppVotes"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_2872C190612E492D93C76BB1424292B9"
+            "Target" = "8:_88523BA1E3CD413F9E82F2D8FC8508E7"
             "Folder" = "8:_88523BA1E3CD413F9E82F2D8FC8508E7"
-            "WorkingFolder" = "8:_B796115D63EF475985082BAFCE880297"
+            "WorkingFolder" = "8:_88523BA1E3CD413F9E82F2D8FC8508E7"
             "Icon" = "8:"
             "Feature" = "8:"
             }

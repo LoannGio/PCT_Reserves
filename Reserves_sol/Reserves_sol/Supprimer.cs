@@ -17,7 +17,13 @@ namespace Reserves_sol
         {
             InitializeComponent();
             dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            showData();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            foreach (var o in db.oeuvre.ToList())
+            {
+                Image img = LoadImage(o.url_img);
+                dataGridView1.Rows.Add(new Bitmap(LoadImage(o.url_img), new Size(200, 150)), o.titre, o.auteur, o.description);
+            }
         }
 
         private Image LoadImage(string url)
@@ -49,18 +55,6 @@ namespace Reserves_sol
 
         }
 
-        private void showData()
-        {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            foreach (var o in db.oeuvre.ToList())
-            {
-                Image img = LoadImage(o.url_img);
-                dataGridView1.Rows.Add(new Bitmap(LoadImage(o.url_img), new Size(200, 150)), o.titre, o.auteur, o.description);
-            }
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
         #region Boutons
         private void return_btn_Click(object sender, EventArgs e)
         {
@@ -74,11 +68,14 @@ namespace Reserves_sol
                 int rowindex = dataGridView1.CurrentCell.RowIndex;
                 int columnindex = 1;
                 string titreOeuvreAsupprimer = dataGridView1.Rows[rowindex].Cells[columnindex].Value.ToString();
-                Console.WriteLine(titreOeuvreAsupprimer);
                 oeuvre oeuvreAsupprimer = db.oeuvre.Where(o => o.titre == titreOeuvreAsupprimer).First();
                 db.oeuvre.Remove(oeuvreAsupprimer);
-                db.SaveChanges();
-                showData();
+                int res = db.SaveChanges();
+                if (res != 0)
+                {
+                    dataGridView1.Rows.RemoveAt(rowindex);
+                    dataGridView1.Refresh();
+                }
             }
         }
         #endregion

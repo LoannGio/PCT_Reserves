@@ -40,14 +40,15 @@
             this.data_enCours = new System.Windows.Forms.Label();
             this.End_button = new System.Windows.Forms.Button();
             this.oeuvresDataGridView = new System.Windows.Forms.DataGridView();
-            this.label_total_votes = new System.Windows.Forms.Label();
-            this.data_TotalVotes = new System.Windows.Forms.TextBox();
-            this.label_sondage_expired = new System.Windows.Forms.Label();
             this.nbVotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label_total_votes = new System.Windows.Forms.Label();
+            this.data_TotalVotes = new System.Windows.Forms.TextBox();
+            this.label_sondage_expired = new System.Windows.Forms.Label();
+            this.btn_export = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.oeuvresDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,7 +143,7 @@
             // 
             // End_button
             // 
-            this.End_button.Location = new System.Drawing.Point(814, 18);
+            this.End_button.Location = new System.Drawing.Point(816, 23);
             this.End_button.Name = "End_button";
             this.End_button.Size = new System.Drawing.Size(75, 23);
             this.End_button.TabIndex = 12;
@@ -167,34 +168,6 @@
             this.oeuvresDataGridView.RowTemplate.Height = 150;
             this.oeuvresDataGridView.Size = new System.Drawing.Size(932, 404);
             this.oeuvresDataGridView.TabIndex = 13;
-            // 
-            // label_total_votes
-            // 
-            this.label_total_votes.AutoSize = true;
-            this.label_total_votes.Location = new System.Drawing.Point(144, 256);
-            this.label_total_votes.Name = "label_total_votes";
-            this.label_total_votes.Size = new System.Drawing.Size(102, 13);
-            this.label_total_votes.TabIndex = 14;
-            this.label_total_votes.Text = "Nombre votes total :";
-            // 
-            // data_TotalVotes
-            // 
-            this.data_TotalVotes.Location = new System.Drawing.Point(279, 253);
-            this.data_TotalVotes.Name = "data_TotalVotes";
-            this.data_TotalVotes.ReadOnly = true;
-            this.data_TotalVotes.Size = new System.Drawing.Size(76, 20);
-            this.data_TotalVotes.TabIndex = 15;
-            // 
-            // label_sondage_expired
-            // 
-            this.label_sondage_expired.AutoSize = true;
-            this.label_sondage_expired.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label_sondage_expired.ForeColor = System.Drawing.Color.Red;
-            this.label_sondage_expired.Location = new System.Drawing.Point(649, 222);
-            this.label_sondage_expired.Name = "label_sondage_expired";
-            this.label_sondage_expired.Size = new System.Drawing.Size(41, 13);
-            this.label_sondage_expired.TabIndex = 17;
-            this.label_sondage_expired.Text = "expired";
             // 
             // nbVotes
             // 
@@ -236,12 +209,51 @@
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
+            // label_total_votes
+            // 
+            this.label_total_votes.AutoSize = true;
+            this.label_total_votes.Location = new System.Drawing.Point(144, 256);
+            this.label_total_votes.Name = "label_total_votes";
+            this.label_total_votes.Size = new System.Drawing.Size(102, 13);
+            this.label_total_votes.TabIndex = 14;
+            this.label_total_votes.Text = "Nombre votes total :";
+            // 
+            // data_TotalVotes
+            // 
+            this.data_TotalVotes.Location = new System.Drawing.Point(279, 253);
+            this.data_TotalVotes.Name = "data_TotalVotes";
+            this.data_TotalVotes.ReadOnly = true;
+            this.data_TotalVotes.Size = new System.Drawing.Size(76, 20);
+            this.data_TotalVotes.TabIndex = 15;
+            // 
+            // label_sondage_expired
+            // 
+            this.label_sondage_expired.AutoSize = true;
+            this.label_sondage_expired.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_sondage_expired.ForeColor = System.Drawing.Color.Red;
+            this.label_sondage_expired.Location = new System.Drawing.Point(649, 222);
+            this.label_sondage_expired.Name = "label_sondage_expired";
+            this.label_sondage_expired.Size = new System.Drawing.Size(41, 13);
+            this.label_sondage_expired.TabIndex = 17;
+            this.label_sondage_expired.Text = "expired";
+            // 
+            // btn_export
+            // 
+            this.btn_export.Location = new System.Drawing.Point(664, 23);
+            this.btn_export.Name = "btn_export";
+            this.btn_export.Size = new System.Drawing.Size(103, 23);
+            this.btn_export.TabIndex = 18;
+            this.btn_export.Text = "Exporter XML";
+            this.btn_export.UseVisualStyleBackColor = true;
+            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
+            // 
             // InfoSondage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.btn_export);
             this.Controls.Add(this.label_sondage_expired);
             this.Controls.Add(this.data_TotalVotes);
             this.Controls.Add(this.label_total_votes);
@@ -287,5 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Auteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.Button btn_export;
     }
 }
