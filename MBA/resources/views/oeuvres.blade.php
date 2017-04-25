@@ -10,7 +10,9 @@
 
 
 @section('content')
-	    
+	   <div class="box">                  
+                    
+     <div class="col-lg-12 text-center">           
 	<br><br>    
 	<?php
 		$oeuvres = DB::table('OeuvreParSondage')->wheresondage_id($n)->get();
@@ -53,6 +55,8 @@
 			echo'</tbody>';	    	
 		echo'</table>';
 
-	?>
+	?>	 </div>
+	</div>
+	
 @stop	
 </html>

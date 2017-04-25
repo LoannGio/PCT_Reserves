@@ -1,53 +1,8 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #00BFFF;
-}
 
-li {
-    float: left;
-    border-right:2px solid #FFF;
-}
-
-li a{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover{
-    background-color: #333;
-}
-
-
-.entete {
-    background-color: #E6E6E6;
-    color: #000000;   
-}
-
-footer{
-    padding:15px 0px;/*Marge verticale*/
-    background-color:#58D3F7; /*Couleur de fond*/
-    text-align:left;/*texte centré*/
-    position:relative;left: 0; right: 0;
-    bottom:-5px;
-    width:100%;   
-    height:20%;
-    margin-top: 35px;
-}
-
-h1.titre{
-    text-align: center;
-
-}
 
 div.icone{
-    margin-right: 50px;
-    margin-left: 200px;
+    margin-right: 10%;
+    margin-left: 10%;
     text-align: center;
 }
 
@@ -91,6 +46,7 @@ div.button{
 
 div.captcha{
     margin-left: 30%;
+    margin-bottom: 5%;
 }
 
 .myButton {
@@ -143,7 +99,7 @@ div.captcha{
 -ms-transition: all 1s ease; /* Internet Explorer 9 */
 -o-transition: all 1s ease; /* Opera */
 transition: all 1s ease;
-cursor: url("../images/zoom.png"), pointer;
+cursor: url("../img/zoom.png"), pointer;
 }
 .image:hover img {
 /* L'image est grossie de 25% */
@@ -153,3 +109,4 @@ cursor: url("../images/zoom.png"), pointer;
 -o-transform:scale(2.25); /* Opera */
 transform:scale(2.25);
 }
+

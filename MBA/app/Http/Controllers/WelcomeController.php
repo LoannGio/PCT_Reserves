@@ -21,7 +21,8 @@ class WelcomeController extends Controller
     }
     public function oeuvre($s_id,$o_id)
     {
-    	return view('oeuvre')->with(compact('s_id', 'o_id'));	
+        $error=0;
+    	return view('oeuvre')->with(compact('s_id', 'o_id', 'error'));	
     }
     public function voter($s_id,$o_id)
     {
@@ -37,5 +38,6 @@ class WelcomeController extends Controller
     {
         return view('error');
     }
+
      
 }

@@ -11,16 +11,18 @@
 
 
 @section('content')
-
-
+   <div class="box">                  
+                    
+     <div class="col-lg-12 text-center">       
 <meta http-equiv="refresh" content="10;/" />
 
 <h1 class="titre"> Merci pour votre participation ! </h1>
 
-<div class="icone"> <img src="{{URL::asset('/images/remerciement.png')}}" alt="profile Pic" height="200" width="200"> </div>
+<div class="icone"> <img src="{{URL::asset('/img/remerciement.png')}}" alt="" height="320" width="640"> </div>
 
 
-
+	 </div>
+	</div>
 
 @stop	
 </html>	

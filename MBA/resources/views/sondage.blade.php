@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 @extends('layouts.master')
 
 @section('title')
@@ -10,6 +11,9 @@
 
 
 @section('content')
+   <div class="box">                  
+                    
+     <div class="col-lg-12 text-center">       
 
 <br> <br> 
 
@@ -20,9 +24,18 @@ echo'<table class="tab">';
 $sondage = DB::table('Sondage')->whereid($n)->first();
 
 echo'<tr class=trtab>';
-	echo'<th class=th1>';
-		echo $sondage->titre, '<hr>';
-	echo'</th>';
+
+                    
+                    
+                    echo'<th class=th1>';
+                    echo'<hr>';
+                   
+                    echo'<h2 class="intro-text text-center">'.$sondage->titre;
+                     echo'<hr>';
+					echo'</h2>';
+					echo'</th>';
+
+	
 	echo'<th class=th2>';
 		echo "<a class='myButton' href='../oeuvres/$sondage->id'>Listes d'oeuvres</a>";
 	echo'</th>';
@@ -47,8 +60,10 @@ echo'</tr>';
 
 echo'</table>';
 
+
 ?>
 
-
+	 </div>
+	</div>
 @stop	
 </html>
