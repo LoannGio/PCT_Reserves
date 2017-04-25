@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reserves_sol
@@ -13,27 +10,12 @@ namespace Reserves_sol
     public partial class Accueil : Form
     {
         public mbaEntities db = new mbaEntities();
+
         public Accueil()
         {
             InitializeComponent();
 
-            List<string> items = new List<string>();
-            #region Chargement de la liste de sondages
-            foreach (var sondage in db.sondage)
-            {
-                string str_add = "";
-                if (sondage.en_cours != 0)
-                    str_add += "En cours : ";
-                else
-                    str_add += "Terminé : ";
-                str_add += sondage.titre + "\n                 ";
-                str_add += "Début : " + sondage.date_debut.ToShortDateString() + " - ";
-                str_add += "Fin : " + sondage.date_fin.ToShortDateString();
-                items.Add(str_add);
-            }
-            #endregion
-            itemList.DataSource = items;
-            itemList.DrawItem += new DrawItemEventHandler(itemList_DrawItem);
+            loadItems();
         }
 
         private void itemList_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -51,11 +33,13 @@ namespace Reserves_sol
             e.DrawFocusRectangle();
         }
 
+
+        #region Boutons
         private void Create_Click(object sender, EventArgs e)
         {
-            var form = new Creer();
+            var form = new Creer(this);
             form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
@@ -65,12 +49,14 @@ namespace Reserves_sol
         {
             var form = new Importer();
             form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
         }
+        #endregion
 
+        #region Liste d'items (sondages)
         private void itemList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (itemList.SelectedItem != null)
@@ -80,16 +66,38 @@ namespace Reserves_sol
                 titreSondage = titreSondage.Substring(1);
                 var form = new InfoSondage(titreSondage);
                 form.Location = this.Location;
-                form.StartPosition = FormStartPosition.Manual;
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.FormClosing += delegate { this.Show(); };
                 form.Show();
                 this.Hide();
             }
         }
 
+        public void loadItems()
+        {
+            List<string> items = new List<string>();
+            #region Chargement de la liste de sondages
+            foreach (var sondage in db.sondage.ToList().OrderByDescending(x => x.en_cours))
+            {
+                string str_add = "";
+                if (sondage.en_cours != 0)
+                    str_add += "En cours : ";
+                else
+                    str_add += "Terminé : ";
+                str_add += sondage.titre + "\n                 ";
+                str_add += "Début : " + sondage.date_debut.ToShortDateString() + " - ";
+                str_add += "Fin : " + sondage.date_fin.ToShortDateString();
+                items.Add(str_add);
+            }
+            #endregion
+            itemList.DataSource = items;
+            itemList.DrawItem += new DrawItemEventHandler(itemList_DrawItem);
+        }
+
         private void itemList_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
+        #endregion
     }
 }
