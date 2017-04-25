@@ -69,12 +69,10 @@ namespace Reserves_sol
         {
             try
             {
-                System.Net.WebRequest request =
-                System.Net.WebRequest.Create(url);
+                System.Net.WebRequest request = System.Net.WebRequest.Create(url);
 
                 System.Net.WebResponse response = request.GetResponse();
-                System.IO.Stream responseStream =
-                    response.GetResponseStream();
+                System.IO.Stream responseStream = response.GetResponseStream();
 
                 Bitmap bmp = new Bitmap(responseStream);
 
@@ -110,5 +108,45 @@ namespace Reserves_sol
             End_button.Hide();
         }
         #endregion
+
+        private void btn_export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            DialogResult result = fileDialog.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                string path = fileDialog.FileName;
+                File.Create(path).Dispose();
+                using (TextWriter tw = new StreamWriter(path))
+                {
+                    tw.WriteLine("<SONDAGE>");
+                    tw.WriteLine("\t<TITRE>"+ my_sondage.titre + "</TITRE>");
+                    tw.WriteLine("\t<DESCRIPTION>" + my_sondage.description + "</DESCRIPTION>");
+                    tw.WriteLine("\t<DEBUT>" + my_sondage.date_debut.ToShortDateString() + "</DEBUT>");
+                    tw.WriteLine("\t<FIN>" + my_sondage.date_fin.ToShortDateString() + "</FIN>");
+                    string etat = "";
+                    if (my_sondage.en_cours != 0)
+                        etat = "En cours";
+                    else
+                        etat = "Terminé";
+                    tw.WriteLine("\t<ETAT>"+etat+"</ETAT>");
+
+                    tw.WriteLine("\t<OEUVRES>");
+                    foreach(var o in my_sondage.oeuvreparsondage.ToList())
+                    {
+                        tw.WriteLine("\t\t<OEUVRE>");
+                        tw.WriteLine("\t\t\t<TITREO>" + o.titre + "</TITREO>");
+                        tw.WriteLine("\t\t\t<AUTEUR>" + o.auteur + "</AUTEUR>");
+                        tw.WriteLine("\t\t\t<DESCR>" + o.description + "</DESCR>");
+                        tw.WriteLine("\t\t\t<URL>" + o.url_img + "</URL>");
+                        tw.WriteLine("\t\t\t<NBVOTES>" + o.nb_votes + "</NBVOTES>");
+                        tw.WriteLine("\t\t</OEUVRE>");
+                    }
+                    tw.WriteLine("\t</OEUVRES>");
+                    tw.WriteLine("</SONDAGE>");
+                    tw.Close();
+                }
+            }
+        }
     }
 }
