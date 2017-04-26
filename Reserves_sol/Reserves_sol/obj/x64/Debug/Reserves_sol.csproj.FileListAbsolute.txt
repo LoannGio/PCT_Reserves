@@ -35,3 +35,4 @@ C:\Users\Loann\Documents\Visual Studio 2015\Projects\Reserves_sol\Reserves_sol\o
 C:\Users\Loann\Documents\Visual Studio 2015\Projects\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.Properties.Resources.resources
 C:\Users\Loann\Documents\Visual Studio 2015\Projects\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.Supprimer.resources
 C:\Users\Loann\Documents\Visual Studio 2015\Projects\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.csproj.GenerateResource.Cache
+C:\Users\Loann\Desktop\Git\PCT_Reserves\Reserves_sol\Reserves_sol\obj\x64\Debug\Reserves_sol.csprojResolveAssemblyReference.cache

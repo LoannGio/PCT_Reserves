@@ -32,43 +32,62 @@ namespace Reserves_sol
                 string filename = fileDialog.FileName;
                 if (filename.Split('.')[1] == "xml")
                 {
-                    #region traitement XML
+                    Console.WriteLine("OK - FILENAME: " + filename);
                     //IMPORTE DANS LA BD
                     XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(filename);
 
-                    List<oeuvre> listeOeuvresAImporter = new List<oeuvre>();
 
-                    // Get elements
-                    XmlNodeList oeuvreNodes = xmlDoc.GetElementsByTagName("OEUVRE");
-                    XmlNodeList titre = xmlDoc.GetElementsByTagName("titre");
-                    XmlNodeList auteur = xmlDoc.GetElementsByTagName("auteur");
-                    XmlNodeList description = xmlDoc.GetElementsByTagName("description");
-                    XmlNodeList url_img = xmlDoc.GetElementsByTagName("url_img");
 
-                    for (int i = 0; i < oeuvreNodes.Count; i++)
+                    string content = File.ReadAllText(filename);
+                    //escape all invalids characters.
+                    content = content.Replace("&", "&amp;");
+                    content = content.Replace("'", "&apos;");
+                    content = content.Replace("\"", "&quot;");
+                    File.WriteAllText(filename, content);
+
+                    try
                     {
-                        oeuvre nouvelleOeuvre = new oeuvre();
-                        nouvelleOeuvre.titre = titre[i].InnerText;
-                        nouvelleOeuvre.auteur = auteur[i].InnerText;
-                        nouvelleOeuvre.description = description[i].InnerText;
-                        nouvelleOeuvre.url_img = url_img[i].InnerText;
+                        xmlDoc.Load(filename);
 
-                        listeOeuvresAImporter.Add(nouvelleOeuvre);
+                        List<oeuvre> listeOeuvresAImporter = new List<oeuvre>();
+
+                        // Get elements
+                        XmlNodeList oeuvreNodes = xmlDoc.GetElementsByTagName("OEUVRE");
+                        XmlNodeList titre = xmlDoc.GetElementsByTagName("titre");
+                        XmlNodeList auteur = xmlDoc.GetElementsByTagName("auteur");
+                        XmlNodeList description = xmlDoc.GetElementsByTagName("description");
+                        XmlNodeList url_img = xmlDoc.GetElementsByTagName("url_img");
+
+                        for (int i = 0; i < oeuvreNodes.Count; i++)
+                        {
+
+                            oeuvre nouvelleOeuvre = new oeuvre();
+                            nouvelleOeuvre.titre = titre[i].InnerText;
+                            nouvelleOeuvre.auteur = auteur[i].InnerText;
+                            nouvelleOeuvre.description = description[i].InnerText;
+                            nouvelleOeuvre.url_img = url_img[i].InnerText;
+                            listeOeuvresAImporter.Add(nouvelleOeuvre);
+
+                        }
+
+                        Console.WriteLine("Apresif");
+                        //Supprime les anciennes oeuvres
+                        foreach (oeuvre o in db.oeuvre.ToList())
+                        {
+                            db.oeuvre.Remove(o);
+                        }
+                        //Ajoute les nouvelles oeuvres
+                        foreach (oeuvre o in listeOeuvresAImporter)
+                        {
+                            db.oeuvre.Add(o);
+                        }
+                        db.SaveChanges();
+                        successLabel.Text = "Importation réussie !";
                     }
-                    //Supprime les anciennes oeuvres
-                    foreach (oeuvre o in db.oeuvre.ToList())
+                    catch (Exception ex)
                     {
-                        db.oeuvre.Remove(o);
+                        errorLabel.Text = "Erreur format XML. Verifiez les balises.";
                     }
-                    //Ajoute les nouvelles oeuvres
-                    foreach (oeuvre o in listeOeuvresAImporter)
-                    {
-                        db.oeuvre.Add(o);
-                    }
-                    db.SaveChanges();
-                    successLabel.Text = "Import réussi.";
-                    #endregion
                 }
                 else if (filename.Split('.')[1] == "csv")
                 {

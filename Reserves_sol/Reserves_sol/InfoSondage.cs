@@ -139,6 +139,9 @@ namespace Reserves_sol
         private void btn_export_Click(object sender, EventArgs e)
         {
             SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Filter = "XML-File | *.xml";
+            fileDialog.DefaultExt = ".xml";
+            fileDialog.FileName = "sondage_export";
             DialogResult result = fileDialog.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
