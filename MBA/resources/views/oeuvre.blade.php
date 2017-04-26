@@ -11,11 +11,18 @@
 
 
 @section('content')
-
+   <div class="box">                  
+                    
+     <div class="col-lg-12 text-center">       
 <br> <br> <br>
 
 <?php
-$oeuvre = DB::table('OeuvreParSondage')->whereid($o_id)->first()
+$oeuvre = DB::table('OeuvreParSondage')->whereid($o_id)->first();
+if($error==1){
+	echo "<a class='myButton' href='../../../oeuvres/$s_id'>Liste des oeuvres</a>";
+}else{	
+	echo "<a class='myButton' href='../../oeuvres/$s_id'>Liste des oeuvres</a>";
+}
 ?>
 
 
@@ -46,8 +53,15 @@ $oeuvre = DB::table('OeuvreParSondage')->whereid($o_id)->first()
 </table>
 	
 <br> <br>	
+	<?php 
+		if(isset($error)){
+			if($error==1){
+				echo'<p class="errormsg">Merci de valider le captcha !</p>';
+			}
+		}
+	?>
 
-	<form method="post" action="../../../voter/traitement/<?php echo"$s_id"?>/<?php echo"$o_id"?>/" id ="form">
+	<form method="post" action="../../../voter/traitement/<?php echo"$s_id"?>/<?php echo"$o_id"?>" id ="form">
 	{!! csrf_field() !!}
 		
 			<div class="captcha"> 
@@ -57,6 +71,7 @@ $oeuvre = DB::table('OeuvreParSondage')->whereid($o_id)->first()
 				<input class="myButton" type="submit" value="Voter" />
 			</div>
 	</form>	
-
+	 </div>
+	</div>
 @stop	
 </html>

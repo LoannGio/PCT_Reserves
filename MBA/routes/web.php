@@ -16,6 +16,7 @@ Route::get('/sondage/{n}', 'WelcomeController@sondage');
 Route::get('/oeuvres/{n}', 'WelcomeController@oeuvres');
 Route::get('/oeuvre/{s_id}/{o_id}', 'WelcomeController@oeuvre');
 Route::post('/voter/traitement/{s_id}/{o_id}', 'VoteController@postInfos');
+Route::get('/oeuvre/{s_id}/{o_id}/{error}', 'VoteController@captchaerror');
 Route::get('/remercie', 'WelcomeController@remercie');
 
 

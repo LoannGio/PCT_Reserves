@@ -17,9 +17,15 @@ class VoteController extends Controller
                 ])->increment('nb_votes');
             return redirect('/remercie');
     	} else {
-            return redirect()->action('WelcomeController@oeuvre', [$s_id,$o_id]);
+            $error=1;
+            //return redirect()->action('WelcomeController@oeuvre', [$s_id,$o_id]);
+            return redirect()->action('VoteController@captchaerror', [$s_id,$o_id,$error]);
             //return view('voter')->with(compact('s_id', 'o_id'));
-    	}
-    	
+    	}	
+    }
+
+    public function captchaerror($s_id,$o_id,$error)
+    {
+        return view('oeuvre')->with(compact('s_id', 'o_id', 'error'));   
     }
 }

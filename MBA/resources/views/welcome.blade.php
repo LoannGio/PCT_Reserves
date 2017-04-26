@@ -11,12 +11,21 @@
 
 
 @section('content')
-  
+   <div class="box">                  
+                    
+     <div class="col-lg-12 text-center">           
 	<?php
 
-	$sondages = DB::table('Sondage')->whereen_cours(0)->get();
+	$sondages = DB::table('Sondage')->whereen_cours(1)->get();
 	echo'<br>';
-	echo'<h1 class="titre">Liste des sondages en cours </h1>';
+
+                    echo'<hr>';
+                    echo'<h2 class="intro-text text-center">Liste des sondages en cours';
+                  
+                    echo'</h2>';
+                    echo'<hr>';
+
+	
 	echo'<table id="example" class="display" cellspacing="0" width="80%">';
     	echo'<thead>';
     		echo'<th>Titre</th>';
@@ -44,5 +53,7 @@
 	echo'</tbody>';
 	echo'</table>';
 	?>
+	 </div>
+	</div>
 @stop	
 </html>
