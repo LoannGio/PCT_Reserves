@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
+
 
 namespace Reserves_sol
 {
@@ -11,15 +13,17 @@ namespace Reserves_sol
     {
         public mbaEntities db = new mbaEntities();
         public sondage my_sondage;
+        public Accueil my_acc;
 
         public InfoSondage()
         {
             InitializeComponent();
         }
 
-        public InfoSondage(string titreSondage)
+        public InfoSondage(string titreSondage, Accueil acc)
         {
             InitializeComponent();
+            my_acc = acc;
             label_sondage_expired.Text = "";
             this.Text = titreSondage;
             my_sondage = db.sondage.FirstOrDefault(x => x.titre == titreSondage);
@@ -80,7 +84,7 @@ namespace Reserves_sol
 
                 return bmp;
             }
-            catch (System.Net.WebException we)
+            catch
             {
 
                 var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
@@ -106,8 +110,31 @@ namespace Reserves_sol
             data_enCours.Text = "Ce sondage est terminé.";
             data_enCours.ForeColor = Color.Red;
             End_button.Hide();
+            loadItemsAcc(my_acc.getItemList());
+            my_acc.getItemList().Refresh();
         }
         #endregion
+
+        public void loadItemsAcc(ListBox itemList)
+        {
+            List<string> items = new List<string>();
+            #region Chargement de la liste de sondages
+            foreach (var sondage in db.sondage.ToList().OrderByDescending(x => x.en_cours))
+            {
+                string str_add = "";
+                if (sondage.en_cours != 0)
+                    str_add += "En cours : ";
+                else
+                    str_add += "Terminé : ";
+                str_add += sondage.titre + "\n                 ";
+                str_add += "Début : " + sondage.date_debut.ToShortDateString() + " - ";
+                str_add += "Fin : " + sondage.date_fin.ToShortDateString();
+                items.Add(str_add);
+            }
+            #endregion
+            itemList.DataSource = items;
+            itemList.DrawItem += new DrawItemEventHandler(my_acc.itemList_DrawItem);
+        }
 
         private void btn_export_Click(object sender, EventArgs e)
         {

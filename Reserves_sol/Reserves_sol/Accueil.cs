@@ -18,7 +18,7 @@ namespace Reserves_sol
             loadItems();
         }
 
-        private void itemList_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
+        public void itemList_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             // Draw the background of the ListBox control for each item.
             e.DrawBackground();
@@ -64,7 +64,7 @@ namespace Reserves_sol
                 string infoSondage = itemList.SelectedItem.ToString();
                 string titreSondage = infoSondage.Split(':')[1].Split('\n')[0];
                 titreSondage = titreSondage.Substring(1);
-                var form = new InfoSondage(titreSondage);
+                var form = new InfoSondage(titreSondage, this);
                 form.Location = this.Location;
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.FormClosing += delegate { this.Show(); };
@@ -92,6 +92,12 @@ namespace Reserves_sol
             #endregion
             itemList.DataSource = items;
             itemList.DrawItem += new DrawItemEventHandler(itemList_DrawItem);
+        }
+
+
+        public ListBox getItemList()
+        {
+            return itemList;
         }
 
         private void itemList_MouseClick(object sender, MouseEventArgs e)

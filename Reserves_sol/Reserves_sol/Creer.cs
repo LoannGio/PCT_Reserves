@@ -50,7 +50,7 @@ namespace Reserves_sol
 
                 return bmp;
             }
-            catch (System.Net.WebException we)
+            catch
             {
 
                 var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
@@ -91,8 +91,6 @@ namespace Reserves_sol
 
         private void but_create_Click(object sender, EventArgs e)
         {
-            //renvoyer message erreur si titre déja utilisé ?
-            //tester si les textboxes sont vides ?
             #region Test des erreurs
             if (string.IsNullOrWhiteSpace(data_title.Text))
             {
@@ -102,6 +100,11 @@ namespace Reserves_sol
             else if(Int32.Parse(data_selecNumber.Text) < 2)
             {
                 MessageBox.Show("Veuillez sélectionner au moins deux oeuvres", "Error");
+                return;
+            }
+            else if(db.sondage.Where(x => x.titre == data_title.Text).ToList().Count > 0)
+            {
+                MessageBox.Show("Il existe déjà un sondage avec ce titre", "Error");
                 return;
             }
 
@@ -160,6 +163,7 @@ namespace Reserves_sol
             this.Close();
         }
         #endregion
+
 
         private void data_dateDebut_ValueChanged(object sender, EventArgs e)
         {

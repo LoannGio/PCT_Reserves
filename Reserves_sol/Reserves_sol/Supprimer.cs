@@ -43,7 +43,7 @@ namespace Reserves_sol
 
                 return bmp;
             }
-            catch (System.Net.WebException we)
+            catch
             {
 
                 var outPutDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);

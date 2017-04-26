@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using Microsoft.VisualBasic.FileIO;
+using System.IO;
 
 namespace Reserves_sol
 {
@@ -14,7 +15,7 @@ namespace Reserves_sol
         public Importer()
         {
             InitializeComponent();
-            infosImport.Text = "En cliquant sur Importer ci-dessous, veuillez sélectionner un fichier XML.\n\n\n\nLa base de données d'oeuvres sera rechargée à partir du contenu de ce fichier.";
+            infosImport.Text = "En cliquant sur Importer ci-dessous, veuillez sélectionner un fichier XML ou CSV.\n\n\n\nLa base de données d'oeuvres sera écrasée à partir du contenu de ce fichier.";
             infosImport.AutoSize = true;
             errorLabel.Text = "";
             successLabel.Text = "";
@@ -73,34 +74,36 @@ namespace Reserves_sol
                 {
                     #region traitement CSV
                     //IMPORTE DANS LA BD
-                    using (TextFieldParser parser = new TextFieldParser(filename))
+                    List<oeuvre> listeOeuvresAImporter2 = new List<oeuvre>();
+                    using (var fs = File.OpenRead(filename))
+                    using (var reader = new StreamReader(fs))
                     {
-                        List<oeuvre> listeOeuvresAImporter2 = new List<oeuvre>();
-                        parser.TextFieldType = FieldType.Delimited;
-                        parser.SetDelimiters(",");
-                        while (!parser.EndOfData)
+                        while (!reader.EndOfStream)
                         {
-                            //Pour chaque ligne du csv on recupere les infos
-                            string[] fields = parser.ReadFields();
+                            var line = reader.ReadLine();
+                            var values = line.Split(',');
+
                             oeuvre nouvelleOeuvre = new oeuvre();
-                            nouvelleOeuvre.titre = fields[0];
-                            nouvelleOeuvre.auteur = fields[1];
-                            nouvelleOeuvre.description = fields[2];
-                            nouvelleOeuvre.url_img = fields[3];
+                            nouvelleOeuvre.titre = values[0];
+                            nouvelleOeuvre.auteur = values[1];
+                            nouvelleOeuvre.description = values[2];
+                            nouvelleOeuvre.url_img = values[3];
                             listeOeuvresAImporter2.Add(nouvelleOeuvre);
                         }
-                        //Supprime les anciennes oeuvres
-                        foreach (oeuvre o in db.oeuvre.ToList())
-                        {
-                            db.oeuvre.Remove(o);
-                        }
-                        //Ajoute les nouvelles oeuvres
-                        foreach (oeuvre o in listeOeuvresAImporter2)
-                        {
-                            db.oeuvre.Add(o);
-                        }
-                        db.SaveChanges();
                     }
+                    listeOeuvresAImporter2.RemoveAt(0);
+                    //Supprime les anciennes oeuvres
+                    foreach (oeuvre o in db.oeuvre.ToList())
+                    {
+                        db.oeuvre.Remove(o);
+                    }
+                    //Ajoute les nouvelles oeuvres
+                    foreach (oeuvre o in listeOeuvresAImporter2)
+                    {
+                        db.oeuvre.Add(o);
+                    }
+                    db.SaveChanges();
+                  }
                     successLabel.Text = "Import réussi.";
                     #endregion
                 }
@@ -109,7 +112,6 @@ namespace Reserves_sol
                     errorLabel.Text = "Veuillez sélectionner un fichier .xml !";
                 }
             }
-        }
 
         private void returnBut_Click(object sender, EventArgs e)
         {
@@ -124,6 +126,8 @@ namespace Reserves_sol
             form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
+            errorLabel.Text = "";
+            successLabel.Text = "";
         }
         #endregion
     }
