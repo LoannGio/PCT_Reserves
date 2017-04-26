@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Client :  127.0.0.1
-- Généré le :  Jeu 13 Avril 2017 à 17:00
+- Généré le :  Mer 26 Avril 2017 à 18:23
 - Version du serveur :  10.1.16-MariaDB
 - Version de PHP :  5.6.24
 -->
@@ -19,44 +19,37 @@
             <pma:table name="oeuvre">
                 CREATE TABLE `oeuvre` (
                   `id` int(6) NOT NULL AUTO_INCREMENT,
-                  `titre` varchar(255) CHARACTER SET utf8 NOT NULL,
-                  `auteur` varchar(256) CHARACTER SET utf8 NOT NULL,
+                  `titre` varchar(64) CHARACTER SET utf8 NOT NULL,
+                  `auteur` varchar(64) CHARACTER SET utf8 NOT NULL,
                   `description` text CHARACTER SET utf8 NOT NULL,
                   `url_img` varchar(256) CHARACTER SET utf8 NOT NULL,
-                  PRIMARY KEY (`id`),
-                  UNIQUE KEY `titre` (`titre`),
-                  UNIQUE KEY `titre_2` (`titre`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
             <pma:table name="oeuvreparsondage">
                 CREATE TABLE `oeuvreparsondage` (
                   `id` int(6) NOT NULL AUTO_INCREMENT,
-                  `titre` varchar(255) CHARACTER SET utf8 NOT NULL,
-                  `auteur` varchar(256) CHARACTER SET utf8 NOT NULL,
+                  `titre` varchar(64) CHARACTER SET utf8 NOT NULL,
+                  `auteur` varchar(64) CHARACTER SET utf8 NOT NULL,
                   `description` text CHARACTER SET utf8 NOT NULL,
                   `url_img` varchar(256) CHARACTER SET utf8 NOT NULL,
                   `sondage_id` int(4) NOT NULL,
                   `nb_votes` int(8) DEFAULT '0',
                   PRIMARY KEY (`id`),
-                  UNIQUE KEY `titre` (`titre`),
-                  UNIQUE KEY `titre_2` (`titre`),
                   KEY `sondage_id` (`sondage_id`),
                   CONSTRAINT `OeuvreParSondage_ibfk_1` FOREIGN KEY (`sondage_id`) REFERENCES `sondage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-                ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
             <pma:table name="sondage">
                 CREATE TABLE `sondage` (
                   `id` int(4) NOT NULL AUTO_INCREMENT,
-                  `titre` varchar(255) CHARACTER SET utf8 NOT NULL,
+                  `titre` varchar(64) CHARACTER SET utf8 NOT NULL,
                   `description` text CHARACTER SET utf8 NOT NULL,
                   `date_debut` datetime NOT NULL,
                   `date_fin` datetime NOT NULL,
-                  PRIMARY KEY (`id`),
-                  UNIQUE KEY `titre` (`titre`),
-                  UNIQUE KEY `titre_2` (`titre`),
-                  UNIQUE KEY `titre_3` (`titre`),
-                  UNIQUE KEY `titre_4` (`titre`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+                  `en_cours` int(1) NOT NULL DEFAULT '1',
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
@@ -66,189 +59,7 @@
     -->
     <database name="mba">
         <!-- Table oeuvre -->
-        <table name="oeuvre">
-            <column name="id">159</column>
-            <column name="titre">Enlèvement des filles de Leucippe</column>
-            <column name="auteur">Pablo PICASSO</column>
-            <column name="description">Matière et technique : Eau-forte et pointe sèche sur papier. 
-	Mesures : Hauteur de la feuille en mm 363 ; Largeur de la feuille en mm 472 ; Hauteur de la planche en mm 223 ; Largeur de la planche en mm 330 
-	Inscriptions / marques : [Signé en bas à droite au crayon dans la marge] PICASSO [Numéroté en bas à gauche sous la cuvette] 42/50 [Daté en haut à droite dans la planche à l&amp;amp;amp;apos;envers] 23.5.68.I 
-	Numéro d&amp;amp;amp;apos;inventaire : Bx 1974.2.1. 
-	Historique : - Ancienne collection de Madame Louise LEIRIS, donnée pour la vente au profit de l&amp;amp;amp;apos;U.N.I.C.E.F., Bordeaux, 20 décembre 1973. 
-	Mode d&amp;amp;amp;apos;acquisition Achat à la vente U.N.I.C.E.F., Bordeaux, 20 décembre 1973. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/197421-4289.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">160</column>
-            <column name="titre">Olga lisant</column>
-            <column name="auteur">Pablo PICASSO</column>
-            <column name="description">Matière et technique : Huile sur toile 
-Mesures : Hauteur sans cadre en cm 100 ; Largeur sans cadre en cm 73 ; Hauteur avec cadre en cm 106 ; Largeur avec cadre en cm 79 ; 
-Inscriptions / marques : 
-Numéro d&amp;amp;amp;apos;inventaire : MP 1990-7. Autre numéro : : Bx D 1991.9.1 
-Historique : - Ancienne collection de l&amp;amp;amp;apos;artiste. - Ancienne collection Jacqueline Picasso, 1973. - Ancienne collection Catherine Hutin-Blay, 1986. - Dation à l&amp;amp;amp;apos;Etat, 1990. 
-Mode d&amp;amp;amp;apos;acquisition Affectation de la Direction des Musées de France, dépôt à durée indéterminée, 1991. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/002-049-370.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">161</column>
-            <column name="titre">Tête d&amp;amp;amp;apos;homme</column>
-            <column name="auteur">Ferdinand Victor Léon ROYBET</column>
-            <column name="description">Matière et technique : Huile sur bois. 
-Mesures : Hauteur sans cadre en cm 61 ; Largeur sans cadre en cm 50 ; Hauteur avec cadre en cm 84,8 ; Largeur avec cadre en cm 72,6 ; 
-Inscriptions / marques : [Signé en haut à droite] F. Roybet 
-Numéro d&amp;amp;amp;apos;inventaire : Bx E 1448. Autre numéro : : Bx M 6339 
-Historique : - Ancienne collection de madame Mainda . 
-Mode d&amp;amp;amp;apos;acquisition Legs Mainda, 1932.</column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/014-099-3064.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">162</column>
-            <column name="titre">Sainte Anne et la Vierge enfant</column>
-            <column name="auteur">Charles-Victor-Eugène LEFEBVRE</column>
-            <column name="description">Matière et technique : Huile sur toile 
-Mesures : Hauteur sans cadre en cm 102 ; Largeur sans cadre en cm 102,5 
-Inscriptions / marques : [Signé en bas à droite] : C. Lefebvre 
-Numéro d&amp;amp;amp;apos;inventaire : FNAC PFH-4887. Autre numéro : : Bx E 782, : Bx M 6578 
-Mode d&amp;amp;amp;apos;acquisition Envoi de l&amp;amp;amp;apos;Etat, 22 mai 1883.</column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/012-031-2421.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">163</column>
-            <column name="titre">Scène romantique</column>
-            <column name="auteur">Ferdinand Victor Léon ROYBET</column>
-            <column name="description">Matière et technique : Eau-forte sur papier. 
-Mesures : Hauteur de la feuille en mm 182 ; Largeur de la feuille en mm 272 ; Hauteur de la planche en mm 125 ; Largeur de la planche en mm 171 
-Inscriptions / marques : ( Signé en bas à droite et monogrammé à l&amp;amp;amp;apos;envers dans la planche] F. Roybet et R.F. 
-Numéro d&amp;amp;amp;apos;inventaire : Bx M 8079. 
-Mode d&amp;amp;amp;apos;acquisition Mode et date d&amp;amp;amp;apos;acquisition inconnus.</column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/M8079-6980.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">164</column>
-            <column name="titre">Maraîchères</column>
-            <column name="auteur">Victor-Gabriel GILBERT</column>
-            <column name="description">Matière et technique : Huile sur toile 
-Mesures : Hauteur sans cadre en cm 102 ; Largeur sans cadre en cm 102,5 
-Inscriptions / marques : [Signé en bas à droite] : C. Lefebvre 
-Numéro d&amp;amp;amp;apos;inventaire : FNAC PFH-4887. Autre numéro : : Bx E 782, : Bx M 6578 
-Mode d&amp;amp;amp;apos;acquisition Envoi de l&amp;amp;amp;apos;Etat, 22 mai 1883.</column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/010-010-2106.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">165</column>
-            <column name="titre">Arabes en embuscade</column>
-            <column name="auteur">Théophile-Victor DESCLAUX</column>
-            <column name="description">Matière et technique : Aquatinte sur papier 
-Mesures : Hauteur de la feuille en mm 660 ; Largeur de la feuille en mm 835 ; Hauteur de la planche en mm 440 ; Largeur de la planche en mm 575 
-Inscriptions / marques : (Titré en bas au centre] ARABES EN EMBUSCADE (Inscription en bas à gauche] Peint par Philippoteaux (Inscription en bas à droite] Gravé par Desclaux (Inscription en bas à gauche] PARIS Publié par GOUPIL et Cie 19 Boulevard Montmartre [Inscription en bas à droite] New York - Published by GOUPIL et Cie 289 Broadway 
-Numéro d&amp;amp;amp;apos;inventaire : Bx M 1484. 
-Historique : 
-Mode d&amp;amp;amp;apos;acquisition Legs Bonie, 1895.</column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/M1484-10215.JPG</column>
-        </table>
-        <table name="oeuvre">
-            <column name="id">166</column>
-            <column name="titre">Visions japonaises</column>
-            <column name="auteur">Jean Paul (XXème s.) ALAUX </column>
-            <column name="description">Matière et technique : Lithographies en couleurs 
-Mesures : Hauteur sans cadre en cm 44,5 ; Largeur sans cadre en cm 31,5 
-Inscriptions / marques : mai 1920 n° 181/300 
-Exécution : [Editeur] : Albert-Victor-Edouard DEVAMBEZ (Paris , 1867 - Paris , 1943 ) . 1920 . Paris 
-Numéro d&amp;amp;amp;apos;inventaire : Bx D 2005.1.37. 
-Historique : - coll. Robert Coustet, Bordeaux. 
-Mode d&amp;amp;amp;apos;acquisition Dépôt Robert Coustet, 2005. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/037-1_02-8132.JPG</column>
-        </table>
         <!-- Table oeuvreparsondage -->
-        <table name="oeuvreparsondage">
-            <column name="id">1</column>
-            <column name="titre">Cour intérieure d'une maison arabe à Alger</column>
-            <column name="auteur">ABD AL-BARI</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/1532-6312.JPG</column>
-            <column name="sondage_id">1</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">2</column>
-            <column name="titre">Portrait de magistrat</column>
-            <column name="auteur">ALAUX</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/2007057-9607.JPG</column>
-            <column name="sondage_id">1</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">3</column>
-            <column name="titre">L'accordéoniste</column>
-            <column name="auteur">Maurice ALBE</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://collections-musees.bordeaux.fr/ow4/mba/images/8107-4178.JPG</column>
-            <column name="sondage_id">1</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">4</column>
-            <column name="titre">Le Beau jardin </column>
-            <column name="auteur">Walid</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://www.tourismebretagne.com/var/crtbre/storage/images/media/images/a-faire/visiter/histoire-patrimoine/parcs-et-jardins/jardin-du-botrain-mur-de-bretagne/3984444-1-fre-FR/jardin-du-botrain-mur-de-bretagne_large_rwd.jpg</column>
-            <column name="sondage_id">1</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">5</column>
-            <column name="titre">Le cheval</column>
-            <column name="auteur">Maxcence</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://carlalapassiondeschevaux.unblog.fr/files/2012/07/cheval_l0ve1.jpg</column>
-            <column name="sondage_id">1</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">6</column>
-            <column name="titre">Au dessus du soleil </column>
-            <column name="auteur">Didine</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://img.over-blog.com/500x332/5/49/79/88/numero/soleil.jpg</column>
-            <column name="sondage_id">2</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">7</column>
-            <column name="titre">Le joueur</column>
-            <column name="auteur">Loann</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://cdn.sports.fr/images/media/football/football/4600930-3-fre-FR/Football.jpg</column>
-            <column name="sondage_id">2</column>
-            <column name="nb_votes">0</column>
-        </table>
-        <table name="oeuvreparsondage">
-            <column name="id">8</column>
-            <column name="titre">Chambre secrète</column>
-            <column name="auteur">Kan</column>
-            <column name="description">Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="url_img">http://www.hotel-terrasses-dubailli.com/wp-content/uploads/sites/299/2015/04/TBS-Chambre-Villa-27m%C2%B2-vue-mer.jpg</column>
-            <column name="sondage_id">2</column>
-            <column name="nb_votes">0</column>
-        </table>
         <!-- Table sondage -->
-        <table name="sondage">
-            <column name="id">1</column>
-            <column name="titre">Concours mois de Mai</column>
-            <column name="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus quam justo, non ullamcorper magna consequat non. Curabitur euismod dolor sed metus pretium, vel maximus velit accumsan. In sem metus, sollicitudin varius ornare a, porta euismod elit. In non vehicula urna. Nulla et vestibulum quam. Vivamus quis nibh nunc. Suspendisse sit amet mi pellentesque, ullamcorper turpis nec, lobortis dui. Sed diam tortor, interdum nec interdum ac, faucibus eu risus. Nunc sollicitudin enim purus, id congue metus fermentum sed. Vestibulum viverra elit non vehicula porta. Donec aliquet vitae libero non vulputate. Phasellus velit ipsum, sollicitudin in urna sit amet, congue dictum arcu. Aenean in ornare risus. Donec maximus, urna sit amet accumsan feugiat, felis mi lobortis felis, eu interdum felis diam molestie quam. Integer molestie, odio nec vehicula aliquam, erat sapien volutpat nibh, vitae hendrerit est neque eu leo. Proin tempus lacus id massa luctus mollis.
-
-Phasellus bibendum metus sed lacinia sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam dapibus nisl vitae tellus tempus, vel tempus mi hendrerit. Pellentesque a diam consequat, fringilla ante non, aliquet diam. In ut iaculis dolor. Etiam a varius justo. Donec ultrices nec orci vitae dignissim. Nunc placerat suscipit purus ac congue. Aliquam molestie, libero ac laoreet convallis, lectus justo feugiat odio, ut scelerisque turpis massa nec felis. </column>
-            <column name="date_debut">2017-02-01 00:00:00</column>
-            <column name="date_fin">2017-02-28 01:20:00</column>
-        </table>
-        <table name="sondage">
-            <column name="id">2</column>
-            <column name="titre">Festival histoire medieval</column>
-            <column name="description">C'est la fete mardi 5 décembre au musée !</column>
-            <column name="date_debut">2017-02-08 11:30:00</column>
-            <column name="date_fin">2017-05-31 20:51:00</column>
-        </table>
     </database>
 </pma_xml_export>
