@@ -61,7 +61,7 @@
             this.itemList.ItemHeight = 40;
             this.itemList.Location = new System.Drawing.Point(12, 68);
             this.itemList.Name = "itemList";
-            this.itemList.Size = new System.Drawing.Size(760, 404);
+            this.itemList.Size = new System.Drawing.Size(760, 484);
             this.itemList.TabIndex = 2;
             this.itemList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.itemList_MouseDoubleClick);
             // 
